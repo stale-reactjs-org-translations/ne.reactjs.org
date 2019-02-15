@@ -1,7 +1,8 @@
 ---
-title: A Stateful Component
+title: स्टेटफुल कम्पोनेंट
 order: 1
 domid: timer-example
 ---
 
-In addition to taking input data (accessed via `this.props`), a component can maintain internal state data (accessed via `this.state`). When a component's state data changes, the rendered markup will be updated by re-invoking `render()`.
+एउटा कम्पोनेंटले बाहिरबाट आउने डाटा (`this.props`) मात्र नभई आफैले पनि डाटा राख्न सक्छ  जसलाई हामीले स्टेटफुल कम्पोनेंट पनि भन्छौ। 
+आफ्नो निजि डाटा राख्न `this.state` प्रयोग हुन्छ जसलाई  हामीले स्टेट भन्छौ  र जब कम्पोनेंट को आफ्नो निजि स्टेट परिबर्तन हुन्छ React ले आब्सयेक HTML मात्र परिबर्तन गरिदिन्छ  

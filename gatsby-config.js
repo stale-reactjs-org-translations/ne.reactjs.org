@@ -8,7 +8,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'React: A JavaScript library for building user interfaces',
+    title: 'React: आकर्षक वेब पेज बनाउने  एउटा जावास्क्रिप्टमा बनेको लैब्ररी',
     siteUrl: 'https://reactjs.org',
     rssFeedTitle: 'React',
     rssFeedDescription: 'A JavaScript library for building user interfaces',
