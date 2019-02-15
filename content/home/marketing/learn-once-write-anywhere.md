@@ -1,8 +1,8 @@
 ---
-title: Learn Once, Write Anywhere
+title: एकचोटी पढ्ने, जहाँपनि  लेखने
 order: 2
 ---
 
-We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
+तपाइले कुन अरु प्रबिधि प्रयोग गर्नु भएको छ त्यसमा हाम्रो कुनै धारणा छैन जसकारण तपाइले तेही प्रबिधि माथि  वा  संगसंगै React मा ऐप  बनाउन सक्नुन्छ।
 
-React can also render on the server using Node and power mobile apps using [React Native](https://facebook.github.io/react-native/).
+React तपाइले सर्भरमा Node को सहायताले पनि प्रयोग गर्न सक्नुन्छ वा [React Native](https://facebook.github.io/react-native/) को सहायताले मोबाइल ऐप  पनि बनाउन सक्नुनछ।
