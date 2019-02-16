@@ -1,12 +1,12 @@
 ---
 id: hello-world
-title: Hello World
+title: हेल्लो दुनिया
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+एउटा सजिलो र साधारण react मा बनेको एप्प येस्तो देखिन्छ:
 
 ```js
 ReactDOM.render(
@@ -15,12 +15,11 @@ ReactDOM.render(
 );
 ```
 
-It displays a heading saying "Hello, world!" on the page.
+येसले पेजमा "Hello World" लेखिएको शिर्षक देखाउने छ।
 
 [](codepen://hello-world)
 
-Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. Most pages in this guide will have editable examples like this one.
-
+माथि दिएको लिंकमा जानु भयो भने नया अनलाइन एडिटर खुल्छ त्यसमा तपाइले माथिको उदहारण देख्न सक्नुने छ।  त्यहाँ हजुरले कोड परिबर्तन गरेर के  हुदो रैछ भनेर नि हेर्न सक्नुने छ।  आफैले यता उता चलाउदा धेरै सिक्न पनि सकिन्छ। येहा र अब आउने पेजमा तपाइले येस्तै कोड एडिटर देख्नुने छ जसमा तपाइले परिबर्तन गरेर हेर्न सक्नुने छ। 
 
 ## How to Read This Guide {#how-to-read-this-guide}
 
