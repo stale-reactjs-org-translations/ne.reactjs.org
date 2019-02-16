@@ -1,8 +1,8 @@
 ---
-title: Declarative
+title: घोषणात्मक
 order: 0
 ---
 
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React  ले संवादमूलक दृश्यहरु अथार्थ वेब एप्प बनाउन एकदम सजिलो पारिदिन्छ।  आफ्नो एप्पको अबस्था अनुसार को दृश्यहरु  बनाउनुहोस र React ले त्यसलाई  चहिएकोबेला ठिक कम्पोनेंटलाई मात्र नवीनीकरण र प्रस्तुत गर्नेछ जतिबेला  हजुर को एप्पको कुनै डाटा परिबर्तन हुनछ ।
 
-Declarative views make your code more predictable and easier to debug.
+घोषणात्मक दृश्यहरुले तपाइको कोड अजै बुझिने, संकेत्माक, पूर्वानुमान  गर्न सकिने बनाउछ र साथ् साथै केहि समस्या आए पनि समाधान (Debug) गर्न  तेती गारो हुदेन। 

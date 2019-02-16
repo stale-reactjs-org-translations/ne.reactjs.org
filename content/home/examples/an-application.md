@@ -1,7 +1,7 @@
 ---
-title: An Application
+title: साधारण एप्प 
 order: 2
 domid: todos-example
 ---
 
-Using `props` and `state`, we can put together a small Todo application. This example uses `state` to track the current list of items as well as the text that the user has entered. Although event handlers appear to be rendered inline, they will be collected and implemented using event delegation.
+`props` र `state` प्रयोग गरेर हामीले एउटा साधारण टुडु एप्प बनाउन सक्छौ । दिएको उदहारणमा एप्पले  `state` प्रयोग गरेर सुचीमा बस्तुहरु थप्ने, घटाउने वा अपडेट गर्छ र युजरले लेखेको डाटालाइ  पनि स्टेटमा राख्छ। हेर्दा `events` हरु छुट्टा छुट्टै प्रयोग भएको देखिन्छ तर React ले `event` हरुलाई जम्मा गर्छ र एकमुस्ट ह्यान्डल गर्छ जसलाई हामि `event delegation ` पनि भन्छौ।  
