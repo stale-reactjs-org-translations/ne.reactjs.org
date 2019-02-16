@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "ट्यूटोरियल: React को परिचय"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,97 +12,96 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+यो ट्यूटोरियलले React संग सम्बन्धित ज्ञान अवस्थित छ भन्ने मान्दैन। 
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## ट्यूटोरियल सुरु गर्नु अघि {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+ट्यूटोरियलको दौरानमा हामी सानो खेलको निर्माण गर्ने छौ। **सायद तपाई यसलाई पढ्न चाहनुहुन्न किनकी तपाइलाई खेलहरु निर्माण गर्नु छैन -- तर एक चोटी पढ्नुहोस।** तपाइले यो ट्यूटोरियलमा सिक्नुहुने तरिकाहरु जुनसुकै React apps बनाउन चाहिने आधारभूत कुराहरु हुन, र यो कुराहरुमा माहिर हुनु भयो भने तपाइले React गहनरुपमा बुझ्न सक्नु हुनेछ।
 
->Tip
+>सुझाव
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>जो मानिसले **गरेर सिक्न** चाहान्छ यो ट्यूटोरियल उसको लागि बनाइएको हो। यदि तपाइ आधारभूत कुराहरु सिक्न चाहनुहुन्छ भने, यो [एकपछि अर्को मार्गदर्शक](/docs/hello-world.html) हेर्नुहोस। तपाइले यो ट्यूटोरियल र मार्गदर्शन एक अर्कामा परिपुरक भएको मान्न सक्नु हुन्छ। 
 
-The tutorial is divided into several sections:
+ट्यूटोरियल धेरै भागहरु मा विभाजित छ:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [ट्यूटोरियलको लागि सेटअप गर्नुहोस्](#setup-for-the-tutorial) ले तपाइलाई ट्यूटोरियल पछ्याउन **सुरुवात बिन्दु** दिनेछ।
+* [अवलोकन](#overview) ले तपाइलाई React कम्पोनेंट, props र state को आधारभूत कुरा सिकाउछ।
+* [गेम पूरा गर्दै](#complexting-the-game) ले तपाइलाई React को विकासको लागि **एकदमै साधारण तरिकाहरु** सिकाउछ।
+* [समय यात्रा थप्दै](#adding-time-travel) ले तपाइलाई React को अलग बलियो पक्षहरुको **गहिरो दृष्टि** दिन्छ।
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+यो ट्यूटोरियलबाट लाभ पाउन तपाइले सबै खण्ड एकै चोटी पुरा गर्नु पर्छ भन्ने छैन। तपाइले सक्ने जति प्रयास गर्नु होला -- एउटा अथवा दुइटा खण्डहरु भए पनि पुरा गर्नुहोस। 
 
-### What Are We Building? {#what-are-we-building}
+### हामी के निर्माण गर्दैछौं? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+यो ट्यूटोरियलमा, हामी कसरी React बाट एक पारस्परिक tic-tac-toe खेल बनाउने भनेर देखाउनेछौं।
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+हामी यहाँ के बनाउन गइरहेको छौ तेस्को **[अन्तिम परिणाम](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** तपाई देख्न सक्नु हुन्छ। यदि तपाई कोड बुझ्न सक्नु हुन्न भने, अथवा यदि तपाई कोड को स्य्न्तक्ष संग अपरचित हुनु हुन्छ भने पनि न आतिनुहोस! यो ट्युटोरियलको अन्तिम लक्ष्य भनेको तपाइलाई React र यसको syntax बुझ्न मदत पुराउनु हो।
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+यो ट्यूटोरियल सुरु गर्नु भन्दा पहिले तपाई tic-tac-toe खेल खेलेर हेर्न हामी सुझाब दिन्छौ। तपाइले विचार गर्न सक्नु हुन्छ खेलको सुविधाहरु मध्ये एउटा चाही, खेल बोर्डको दायाँमा अंकहरुको सुची छ। यो सुचीले तपाइले  खेलमा चालेको  पहिलेको  चालहरुको  रेकर्ड दिन्छ, र यो सुची खेलको प्रगतिसंगै अद्यावधिक हुन्छ। 
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+तपाईं एक पटक  परिचित भएपछि  tic-tac-toe खेल बन्द गर्न सक्नुहुन्छ। हामी यो ट्यूटोरियलमा एक सरल template बाट सुरू गर्नेछौ। हाम्रो अर्को चरण तपाईंलाई सेटअप गर्नु हो ताकि तपाईं खेल निर्माण गर्न सक्नुहुनेछ।
 
-### Prerequisites {#prerequisites}
+### आवश्यकताहरु {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+हामी मान्दछौं कि तपाईंलाई  HTML  र  Javascript  बारे  केहि थाहा छ , तर तपाईं एक फरक Programming  भाषाबाट आउँदै हुनुहुन्छ भनेपनि  तपाई पछ्याउन सक्षम हुनुपर्दछ। हामी यो पनि मान्दछौं कि तपाइँ Programming  अवधारणाहरू जस्तै functions, objects, arrays, र कम हदसम्म भए पनि classes सँग परिचित हुनुहुन्छ।
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+यदि तपाइलाई Javascript पढ्नु पर्ने छ भने, हामी [यो मार्गदर्शक](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) पढ्न सुझाब दिन्छौ। नोट गर्नुहोस कि हामी ES6 को सुविधाहरु प्रयोग गर्ने छौ -- जुन भर्खरै आएको Javascript को version हो। यो ट्यूटोरियलमा, हामी [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), र [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements प्रयोग गर्छौ। तपाई ES6 कोड कसरि compile हुन्छ भनेर हेर्न चाहनुहुन्छ भने  [Babel REPL](babel://es5-syntax-example) प्रयोग गर्न सक्नु हुन्छ। 
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## ट्यूटोरियलको लागि सेटअप गर्नुहोस् {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+यस ट्यूटोरियल पूरा गर्ने दुई तरिकाहरू छन्: तपाईले तपाइँको ब्राउजरमा कोड लेख्न सक्नुहुन्छ, वा तपाइँ आफ्नो कम्प्यूटरमा डेभलपमेन्ट वातावरण बनाउन सक्नुहुनेछ।
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### विकल्प १ सेटअप गर्नुहोस्: ब्राउजरमा कोड लेख्नुहोस् {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+यो सुरू गर्न सबैभन्दा छिटो तरिका हो!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+पहिलो, यो **[स्टार्टर कोड](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** नयाँ ट्याबमा खोल्नुहोस्। नयाँ ट्याबले खाली tic-tac-toe खेल बोर्ड र React कोड प्रदर्शन गर्नुपर्छ। हामी यस ट्यूटोरियलमा React कोड सम्पादन गर्नेछौं।
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+अब तपाइँ दोस्रो सेटअप विकल्प छोड्न सक्नुहुन्छ, र React को [अवलोकन](#overview) प्राप्त गर्न अवलोकन सेक्शनमा जानुहोस्।
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### विकल्प २ सेटअप गर्नुहोस्: कम्प्यूटरमा डेभलपमेन्ट वातावरण {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+यो पुरा तरिकाले वैकल्पिक छ र यो ट्यूटोरियलको लागि आवश्यक छैन!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>वैकल्पिक: कम्प्युटरमा तपाइलाई मन पर्ने  इडिटर  प्रयोग गरेर निर्देशनहरू पछयाउनुहोस्</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+यो सेटअपलाई थप कार्य चाहिन्छ तर तपाई आफ्नो रोजाईको एडिटर प्रयोग गरेर ट्यूटोरियल पुरा गर्न सक्नु हुन्छ। यहाँ पछ्याउन पर्ने चरणहरू छन्: 
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. सुनिश्चित गर्नुहोस् कि तपाईंको हालको संस्करण [Node.js](https://nodejs.org/en/) इन्स्टल छ।
+2. Create React App बाट नयाँ प्रोजेक्ट बनाउन [installation  निर्देशहरू](/docs/create-a-new-react-app.html#create-react-app) पछ्याउनुहोस्।
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. नयाँ प्रोजेक्टको `src/` फोल्डरमा भएको सबै फाइलहरू मेटाउनुहोस्
 
-> Note:
+> नोट:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
-
+>**सम्पूर्ण `src` फोल्डर नमेटाउनुहोस्, भित्र भित्रको मूल स्रोत फाइलहरू मात्र।** हामी अर्को चरणमा यस प्रोजेक्टको लागि उदाहरणहरूको साथ पहिलेको स्रोत फाइलहरूको  ठाउमा राख्नेछौ।
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# यदि तपाईं Mac वा Linux प्रयोग गर्दै हुनुहुन्छ भने:
 rm -f *
 
-# Or, if you're on Windows:
+# वा, यदि तपाइँ windows मा हुनुहुन्छ भने:
 del *
 
-# Then, switch back to the project folder
+# त्यसपछि, प्रोजेक्ट फोल्डरमा फर्कनुहोस्
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. यो [CSS कोडको](https://codepen.io/gaearon/pen/oWWQNa?editors=0100) साथ `src /` फोल्डरभित्र  `index.css` नामकरण गरिएको फाईल थप्नुहोस्।
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. यो [JS कोडको](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)  साथ `src /` फोल्डरमा 'index.js` नामकरण गरिएको फाइल थप्नुहोस्।.
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. `Src /` फोल्डरमा `index.js` को शीर्षमा यी तीन लाइन कोड थप्नुहोस्:
 
 ```js
 import React from 'react';
@@ -110,25 +109,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+अब यदि तपाईंले प्रोजेक्ट फोल्डरमा `npm start ` रन गर्नुहुन्छ  र ब्राउजरमा `http://localhost:3000` खोल्नुहोस्, तपाईंले खाली tic-tac-toe फिल्डलाई हेर्नु पर्दछ।
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+हामी तपाइको सम्पादकको लागि syntax hightlighting मिलाउनको लागि [यी निर्देशनहरू](https://babeljs.io/docs/editors/) पछ्याउन सुझाब दिन्छौ। 
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### गाह्रो पर्यो, मलाई सहयोग गर्नुहोस! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+यदि तपाईं अड्कनुभयो भने, [समुदाय समर्थन स्रोतहरू](/community/support.html) हेर्नुहोस्। विशेष गरी, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) मद्दत छिटो प्राप्त गर्न एक राम्रो तरिका हो। यदि तपाईंले जवाफ प्राप्त गर्नुभएन भने, वा तपाईं अड्कनु भएको छ भने, कृपया एउटा issue  फाइल गर्नुहोस्, र हामी तपाईंलाई मद्दत गर्नेछौं।
 
-## Overview {#overview}
+## अवलोकन {#overview}
 
-Now that you're set up, let's get an overview of React!
+अब तपाईं सेट अप गर्दै हुनुहुन्छ, React को अबलोकन पाउनुहोस!
 
-### What Is React? {#what-is-react}
+### React भनेको के हो? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React एक व्याख्यात्मक, कुशल, र प्रयोगकर्ता इन्टरफेस निर्माण गर्न बनेको Javascript लाइब्रेरी हो। यसले तपाईँलाई जटिल प्रयोगकर्ता इन्टरफेसहरु रचना गर्न सानो र अलग टुक्रा टुक्राहरूबाट बनेको कोडबाट मदत गर्छ जसलाई हामी "components" भन्छौ।
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React मा धेरै प्रकारका components हरु हुन्छन, तर हामी `React.Component` subclasses हरु बाट सुरुवात गर्नेछौ। 
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -146,14 +145,14 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// उदाहरण उपयोग: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+हामी चाँडै रमाइलो  XML जस्तो ट्यागहरू प्राप्त गर्नेछौं। हामी स्क्रीनमा के हेर्न चाहन्छौं भन्ने कुरा बताउन हामी React components  प्रयोग गर्दछौं। जब हाम्रो डेटा परिवर्तन हुन्छ, React ले  हाम्रो component हरुलाई  कुशलतापूर्वक अपडेट र पुन: प्रस्तुत गर्नेछ।
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+यहाँ, ShoppingList **React component class**, वा **React component type** हो।  Component ले parameters लिन्छ, जसलाई हामी `props` भन्छौ ("properties" को छोटकरी रुप), र `render` method मार्फत देखाउन views क्रमानुसार फ़र्काउछ। 
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render` method ले स्क्रीनमा हेर्न चाहानु भएको एक *विवरण* लाई फर्काउँछ। React ले विवरण लिन्छ र परिणाम प्रदर्शन गर्दछ। विशेष गरी, `render` ले  **React element** फर्काउँछ, जो render  गर्न को लागि हल्का विवरण हो। सबै भन्दा बढी React बिकाशकर्ताहरुले  "JSX" नामक एक विशेष सिन्ट्याक्स प्रयोग गर्दछन जसले कोडको  संरचनाहरू लेख्न सजिलो बनाउँछ। निर्माणको समयमा `<div />` syntax `React.createElement ('div')` को रूपमा बदलिन्छ। माथिको उदाहरण यो जस्तै छ:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -162,35 +161,33 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[पूर्ण विस्तारित संस्करण हेर्नुहोस्।](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+यदि तपाइँ उत्सुक हुनुहुन्छ भने, `createElement ()` को बारेमा थप विवरण [API reference](/docs/react-api.html#createelement) मा वर्णन गरिएको छ, तर हामी यसलाई यो ट्यूटोरियलमा प्रयोग गर्दैनौं। बरु, हामी JSX प्रयोग गरिरहनेछौं।
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX ले Javascript लाई शक्तिशाली बनाउछ। तपाईले कुनै Javascript  expressions  मझौला कोस्टभित्र रहने JSX भित्र राख्न सक्नुहुन्छ। प्रत्येक React element Javascript object  हो जुन तपाईं variable मा राख्न सक्नुहुन्छ वा तपाईंको program वरिपरि राख्न सक्नुहुन्छ।
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+माथिको `ShoppingList` component ले निर्मित DOM components जस्तै `<div />` र `<li />` लाई render गर्दछ। तर तपाईले आफ्नै React components पनि रचना गरेर render गर्न सक्नुहुन्छ। उदाहरणको लागि, हामी अब सबै shopping list लाई `<ShoppingList  />` लेखेर जनाउन सक्छौ। प्रत्येक React component गुप्त छ र छुट्टै पनि चलाउन मिल्छ; यसले तपाईंलाई साधारण component हरु बाट जटिल युजर इन्टरफेसहरु निर्माण गर्न दिन्छ।
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+## सुरुवातको कोड निरीक्षण गर्दा {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+यदि तपाईं ट्यूटोरियल **तपाईको ब्राउजरमा** मा काम गर्न जाँदै हुनुहुन्छ भने  यो कोड नयाँ ट्याबमा खोल्नुहोस्: **[सुरुवाती कोड] (https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )**। यदि तपाइँ ट्यूटोरियलमा **locally** काम गर्न जाँदै हुनुहुन्छ भने, यसको सट्टामा आफ्नो project फोल्डरमा `src/index.js` खोल्नुहोस (तपाईंले यो फाइल सेटअप [setup](#setup-option-2-local-development-environment) को बेलामा हेरी सक्नु भएको छ)।
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+यो सुरुवाती कोड हामीले निर्माण गर्न लागेको खेलको आधार हो। हामीले CSS स्टाइल तपाइलाई प्रदान गर्यौं ताकि तपाईलाई  tic-tac-toe खेलको React र programming सिक्नको लागि ध्यान केन्द्रित गर्न आवश्यक छ।
 
-By inspecting the code, you'll notice that we have three React components:
+कोड निरीक्षण गरेर, तपाईलाई थाहा छ कि हामीसँग तीन React components छन्:
 
 * Square
 * Board
 * Game
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+Square component ले  एउटा `<button>` render गर्छ र Board component ले ९ वटा वर्ग render गर्छ। Game Component ले  प्लेसहोल्डर मानहरूको साथ बोर्ड render गर्दछ जुन हामी पछि परिमार्जन गर्नेछौं। हाल कुनै अन्तरक्रियात्मक components छैनन्।
 
-### Passing Data Through Props {#passing-data-through-props}
+### Props बाट डाटा पठाउनुहोस {#passing-data-through-props}
 
-To get our feet wet, let's try passing some data from our Board component to our Square component.
+सुरुवात गर्नको लागि, कृपया केहि डाटा हाम्रो Board Component  बाट Square component मा पठाउन प्रयास गर्नुहोस। 
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
-
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+Board component को  `renderSquare` method मा, `value` prop Square component मा पास गर्न कोड परिवर्तन गर्नुहोस्:
 
 ```js{3}
 class Board extends React.Component {
@@ -199,7 +196,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+value prop देखाउनको लागि Square को `render` method को `{/* TODO */}` लाई हटाएर `{this.props.value}` ले परिबर्तन गर्नुहोस। 
 
 ```js{5}
 class Square extends React.Component {
@@ -213,22 +210,22 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+पहिले:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+पछि: तपाईंले rendered आउटपुटमा प्रत्येक वर्गमा नम्बर देख्नुपर्छ।
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+बधाई छ! तपाईले केवल अभिभावक Board component बाट बाल Square component मा  "prop पठाउनुभयो"। props पठाउनु भनेको React apps मा अभिभावक component बाट बाल component मा जानकारी कसरि जान्छ भन्ने जनाउछ।
 
-### Making an Interactive Component {#making-an-interactive-component}
+### एक अन्तरक्रियात्मक Component बनाउदै {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
+जब हामी Square component क्लीक गर्छौ तब एस्लाई "X" ले परिबर्तन गरौ। 
+पहिले, button ट्याग परिवर्तन गर्नुहोस् जुन Square component को  `render()` function बाट फर्काइएको छ:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -242,11 +239,11 @@ class Square extends React.Component {
 }
 ```
 
-If you click on a Square now, you should see an alert in your browser.
+यदि तपाइँ अहिले एक Square component मा क्लिक गर्नुहुन्छ भने, तपाइँले तपाइँको ब्राउजरमा अलर्ट देख्नुपर्दछ।
 
->Note
+>नोट
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>टाइपिङ सुरक्षित गर्न र यो [`this` को भ्रामक व्यवहार](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)बाट जोगिन, हामी [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) event handlers को लागि यहाँ र तल प्रयोग गर्छौ:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -260,13 +257,14 @@ If you click on a Square now, you should see an alert in your browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>
+>याद गर्नुहोस `onClick={() => alert('click')}`, हामीले कसरि *एउटा function* `onClick` लाई props को रुपमा पठाई राखेका छौ। React ले click गरेपछि मात्रै यो function लाई कल गर्छ। `() =>` लाई बिर्सेर `onClick={alert('click')}` लेख्नु साधारण गल्ति हो, र जसले गर्दा component re-render हुने बित्तिकै जहिले पनि अलर्ट कल हुन्छ।
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+अर्को चरणको रूपमा, हामी Square component क्लिक भएको छ भनी "सम्झाउन" चाहन्छौ, र यसलाई "X" चिन्हले भरिनेछ। त्यो चिजहरु "सम्झनको" लागि, component हरुले state को  प्रयोग गर्छन्।
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+React components हरुको constructors मा `this.state` लाई सेटिङ गरेपछि state बन्छ।  `this.state` लाई React component को निजी state को रुपमा विचार गर्नु पर्छ जुन उक्त component मा परिभाषित गरिएको हुन्छ। अब Square को हालको मान `this.state` मा भण्डार गरौ, अनि जब Square क्लिक भएपछि परिबर्तन गरौ। 
 
-First, we'll add a constructor to the class to initialize the state:
+सर्बप्रथम, state प्रारम्भ गर्न हामीले class मा constructor थप्नेछौ:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -287,17 +285,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>नोट
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>[JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)हरुमा, तपाइले जहिले पनि `super` कल गर्नु पर्छ जब तपाइले subclass मा constructor परिभाषित गर्नु हुन्छ। सबै React component classes संग भएको `constructor` मा `super(props)` कल बाट सुरुवात हुन्छ। 
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+अब हामी क्लिक गरेको बेलाको state को प्रदर्शन गर्न Square को `render` मेथोड़ परिबर्तन गर्छौ:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* `this.props.value` लाई `<button>` ट्याग भित्र `this.state.value` ले बदल्नुहोस्।
+* `OnClick = {...}` event handler लाई `onClick = {() => this.setState ({value: 'X'}}}` ले बदल्नुहोस्।
+* कोड राम्रो देखाउनको लागि अलग-अलग लाइनहरूमा `className` र `onClick` प्रोप्स राख्नुहोस्।
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+यी परिवर्तनहरू पछि, Square को  `render` मेथोडबाट फर्काइएको `<button>` ट्याग यो जस्तो देखिन्छ:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -321,44 +319,45 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Square को `render` मेथोड मा `onClick` handler बाट `this.setState` कल गरेर, जब `<button>` क्लिक हुन्छ, हामीले React मा त्यो Square लाई पुन:render गर्न भनेका हौ। अद्यावधिक पछि, Square को  `this.state.value` को मान `'X'` हुनेछ, त्यसैले हामी गेम बोर्डमा `X` देख्नेछौं। यदि तपाइँ कुनै पनि Square मा क्लिक गर्नुहुन्छ भने, `X` देख्नु पर्दछ।
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+जब तपाइँ एक component मा  `setState` कल गर्नुहुन्छ, React ले स्वचालित रूपमा यसको भित्रको बच्चा component हरु  पुनः अपडेट पनि गर्छ।
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Developer Tools {#developer-tools}
+### विकासकर्ता उपकरणहरू {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+[Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) र [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)को लागि React Devtools एक्सटेन्सनले तपाईंलाई आफ्नो ब्राउजरको विकासकर्ता उपकरणको साथ एक React component  tree को  निरीक्षण गर्न दिन्छ।
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React DevTools ले तपाईंलाई props र तपाईंको React components को  अवस्था जाँच गर्न दिन्छ।
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+React  DevTools स्थापना पछि, तपाईं पृष्ठको कुनैपनि भागमा दायाँ क्लिक गर्न सक्नुहुन्छ, विकासकर्ता उपकरण खोल्नका लागि "inspect" मा क्लिक गर्नुहोस्, र React  ट्याब अन्तिम ट्याबको रूपमा दायाँतिर देखा पर्नेछ।
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+**तथापि, नोट CodePen सँग काम गर्न केही थप चरणहरू छन्:**
 
-## Completing the Game {#completing-the-game}
+1. Login वा दर्ता गर्नुहोस् र तपाईंको इमेलको पुष्टि गर्नुहोस् (स्प्याम रोक्न आवश्यक छ)।
+2. "Fork" बटन क्लिक गर्नुहोस्।
+3. "Change View" क्लिक गर्नुहोस् र त्यसपछि "Debug mode" चयन गर्नुहोस्।
+4. नयाँ ट्याबमा खोलिएको हुन्छ, devtools सँग अहिले एउटा React ट्याब सक्रिय हुनुपर्छ।
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+## गेम पूरा गर्दै {#completing-the-game}
 
-### Lifting State Up {#lifting-state-up}
+अहिले हामीसँग हाम्रो tic-tac-toe खेलको आधारभूत आधारभूत ब्लकहरू छन्। एक पूर्ण खेल गर्न को लागि, हामी अब "X" र "0" लाई एकपछि अर्को देखाउनको लागि, र हामीलाई एक विजेता को निर्धारण गर्ने तरीका चाहिएको छ।
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+### state लाई माथि लैजादा {#lifting-state-up}
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+हाल, प्रत्येक Square component ले खेलको state लाई राख्दछ। विजेता जाँच गर्नको लागि, हामी प्रत्येक 9 वर्गहरुको को मान एक स्थानमा राख्दछौं। 
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+हामी सोच्न सक्छौं कि Board ले प्रत्येक Square लाई Square को state को लागि सोध्नुपर्दछ। यद्यपि यो दृष्टिकोण React मा सम्भव छ, हामी एस्तो नगर्न सल्लाह गर्छौं किनभने कोड बुझ्न गाह्रो हुन्छ, बगहरू आउने सम्भावना हुन्छ, र रिफैक्टर गर्न गाह्रो हुन्छ। बरु, सबै भन्दा राम्रो तरीका प्रत्येक Square को सट्टामा अभिभाबक Board component मा खेलको state भण्डारण गर्नु हो। Board component ले प्रत्येक Square लाई prop पास गरेर कुन मान प्रदर्शन गर्ने भन्न सक्छ, [जस्तै हामी जतिबेला हामीले प्रत्येक Square मा एक अंक पठायौ](#passing-data-through-props)।
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+**धेरै बच्चा component हरु बाट डाटा जम्मा गर्न, वा दुई बच्चा component हरू एकआपसमा कुराकानी गर्न, छुट्टा छुट्टै राख्नुभन्दा तपाइँलाई साझा state उनीहरूको अभिभावकको  भागमा राख्न आवश्यक छ। अभिभावक component ले props प्रयोग गरी बच्चाहरुलाई state फिर्ता गर्न सक्दछ; यसले बच्चाहरूलाई एकअर्कासँग र अभिभावक component सँग सिङ्कमा राख्छ।**
 
-Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+जब React component हरु सुधार्नुपर्छ अभिभावक component मा state सार्नु सामान्य हो - यो मौकाको फाइदा उठाउदै यसलाई  प्रयास गरौ।
+
+Board मा एउटा constructor थप्नुहोस् र Board को सुरुवाती state सेट गर्नुहोस् जसमा ९ सून्य मानको array ९ बर्गहरु संग सम्बन्धित हुन्छ:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -374,7 +373,7 @@ class Board extends React.Component {
   }
 ```
 
-When we fill the board in later, the `this.state.squares` array will look something like this:
+जब हामीले पछि बोर्ड भर्छौं, `this.state.squares` array यो जस्तै केहि हुन्छ:
 
 ```javascript
 [
@@ -384,7 +383,7 @@ When we fill the board in later, the `this.state.squares` array will look someth
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+Board को `renderSquare` मेथोड हाल यो जस्तो देखिन्छ:
 
 ```javascript
   renderSquare(i) {
@@ -392,9 +391,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+सुरुमा, हामीले Board बाट हरेक स्क्वायरमा 0 देखि 8 सम्मको नम्बर देखाउनलाई [`value` prop तल पठायौ](#passing-data-through-props)। फरक अघिल्लो चरणमा, हामीले [Square को आफ्नै state निर्धारण गरिएको](#making-an-interactive-component) संख्याहरू "X" चिन्हसँग प्रतिस्थापित गर्यो। यसैले स्क्वायरले Board द्वारा पास गरिएको `value` propलाई बेवास्ता गर्छ।
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+हामी फेरी अब prop पठाउने तरिका प्रयोग गर्नेछौं। हामी प्रत्येक Square को वर्तमान मान(`'X'`,`' O'`, वा `null`) को बारेमा निर्देशित गर्न Board लाई परिबर्तन गर्नेछौ। हामीले Board को  constructorमा `squares` array परिभाषित गरिसकेका छौ, र हामी यसलाई पढ्नको लागि Board को `renderSquare` मेठोड परिमार्जन गर्नेछौं:
 
 ```javascript{2}
   renderSquare(i) {
@@ -402,13 +401,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+प्रत्येक Square ले अब एक `value` prop प्राप्त गर्छ जुन रिक्त वर्गहरूको लागि कि `'X'`, `'O'` वा `null` हुनेछ।
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+अर्को, हामी Squareमा क्लिक गर्दा के हुन्छ भनेर परिवर्तन गर्न आवश्यक छ। Board componentले अब कुन वर्गहरू भरिएको छ थाहा पाउछ। हामी Boardको state Square मार्फत अद्यावधिक गर्ने तरिका सिर्जना गर्न आवश्यक छ।  component मा परिभाषित गरेको state यसको  निजी हुन्छ, हामीले Boardको state Squareबाट सीधा अपडेट गर्न सक्दैनौं।
 
-Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+यसको सट्टा, हामी Boardबाट Squareमा एक functionलाई तल पठाउनेछौं, र जब स्क्वायरमा क्लिक गरिन्छ हामी Square बाट function कल गर्नेछौ। हामी `renderSquare` मेथोडलाई बोर्डमा परिवर्तन गर्नेछौं:
 
 ```javascript{5}
   renderSquare(i) {
@@ -421,17 +420,18 @@ Instead, we'll pass down a function from the Board to the Square, and we'll have
   }
 ```
 
->Note
+>नोट
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>
+हामीले पढ्न सजिलो बनाउनको लागि returned element लाई धेरै लाइनहरुमा कोड बिभाजन गर्दछौ, र parentheses थप्छौ  जसले गर्दा Javascript ले `return` पछि semicolon थप्दैन र कोड बिग्रिदैन। 
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+अब हामी दुई ओटा props Board बाट Square मा  पठाउछौ: `value` र `onClick`। `OnClick` prop एक function हो जुन क्लिक गर्दा क्लिक गरिएको Squareले कल गर्न सक्छ। हामी निम्न परिवर्तनहरू Squareमा बनाउनेछौं:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* `this.state.value` लाई Square को `render` method मा `this.props.value` ले बदल्नुहोस्
+* `this.setState()` लाई Square को `render` method मा `this.props.onClick()` ले बदल्नुहोस्
+* Square बाट `constructor` मेटाउनुहोस् किनकि Square ले खेलको state लाई नियन्त्रण गर्दैन
 
-After these changes, the Square component looks like this:
+यी परिवर्तन पछि, Square component यस्तो देखिन्छ:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -448,19 +448,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+जब एक Square क्लिक गरिन्छ, बोर्ड द्वारा प्रदान गरिएको `onClick` function कल हुन्छ। यहाँ यो कसरी हासिल भएको छ यसको समीक्षा:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+1. निर्मित DOM `<button>` मा  भएको `OnClick` prop लाई component ले React लाइ क्लिक event listener सेट अप गर्न को लागी भन्छ।
+2. जब बटन क्लिक गरिन्छ, React ले `onClick` event handler लाई कल गर्नेछ जुन Square को `render()` method मा परिभाषित गरिएको छ।
+3. यो event handler ले `this.props.onClick()` लाई कल गर्दछ। Square को  `onclick` prop लाई Board द्वारा निर्दिष्ट गरिएको थियो।
+4. बोर्डले `onClick = {() => this.handleClick (i)}` लाई Square मा पठायो, Square क्लिक गरे पछि`this.handleClick (i)` लाई कल गर्छ।
+5. हामीले अझै `handleClick()` method परिभाषित गरेको छैनौ, त्यसैले हाम्रो कोड बिग्रिन्छ। यदि तपाइँ अहिले एउटा Square मा क्लिक गर्नुहुन्छ भने, तपाईंले रातो त्रुटि भएको एस्तो खालको स्क्रीन देख्नु पर्दछ "this.handleClick is not a function"।
 
->Note
+>नोट
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>DOM `<button>` element को `onClick` attribute सँग React को लागि एक विशेष अर्थ छ किनकि यो एक निर्मित component हो। Square जस्तै आफैले बनाउने  component हरूको लागि, नामकरण तपाईंले नै गर्न सक्नु हुन्छ। हामी Square को `onClick` prop वा Board को `handleClick` method को लागि जुनसुकै नाम दिन सक्दछौं, र कोडले पहिले जस्तै काम गर्नेछ। React मा, `on[Event]` नाम prop को लागी नाम राख्ने चलन छ जुन event हरु को प्रतिनिधित्व गर्दछ र `handle[Event]` method event हरु को सम्हाल्नको लागी को प्रयोग हुन्छ।
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+जब हामी Square मा क्लिक गर्न प्रयास गर्छौं, हामीले एउटा त्रुटि पाउनुपर्छ किनभने हामीले `handleClick` परिभाषित गरेको छैनौ। हामी अब Board class मा `handleClick` थप्छौ:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -513,28 +513,28 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+यी परिवर्तनहरू पछि, हामी पुन: भित्री Square हरूमा क्लिक गरेर मान भर्नको लागि सक्षम भयौ, हामी संग पहिले पनि यस्तै थियो। तथापि, अब state व्यक्तिगत Square component हरुको सट्टा Board component मा भण्डारमा भण्डारण गरिएको छ। जब बोर्डको state परिवर्तन हुन्छ, Square को state स्वचालित रूपमा पुन: render गर्दछ। Board component मा सबै वर्गहरूको state राख्नाले भविष्यमा विजेता निर्धारण गर्न सजिलो हुन्छ।
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Square component हरूले अब state लाई सुरक्षित राख्दैन किनकि, Square component ले Board component बाट मानहरू प्राप्त गर्दछ र Square हरू क्लिक गर्नुहुँदा बोर्डलाई सूचित गर्दछ। React को चलनचल्तीमा, Square component हरू अहिले **controlled components** हुन। Board मा उनीहरूको पूर्ण नियन्त्रण छ।
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+नोट गर्नुहोस् कि `handleClick` मा, हामी अवस्थित array परिमार्जन गर्न को सट्टा `squares` array को प्रतिलिपि सिर्जना गर्न `.slice()` लाई कल गर्दछौ। `squares` array को प्रतिलिपि हामी किन बनाउँछौं भनेर अर्को खण्डमा वर्णन गर्नेछौं।
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### किन Immutability महत्त्वपूर्ण छ {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+अघिल्लो कोड उदाहरणमा, हामीले सुझाव दिएको छ कि तपाइँ  array लाई  परिमार्जन गर्नको लागि अवस्थित array परिबर्तन गर्नुको सट्टा  `.slice()` अपरेटर को उपयोग गरेर `squares` array को एक प्रतिलिपि निर्माण गर्न सक्नु हुन्छ। हामी अहिले immutability को बारेमा र किन immutability सिक्न महत्त्वपूर्ण छ भन्ने बारेमा छलफल गर्नेछौं।
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+सामान्यतया data परिवर्तन गर्न दुईवटा दृष्टिकोणहरू छन्। पहिलो दृष्टिकोण data को मानहरू परिवर्तन गरेर data *mutate* गर्नु हो। दोस्रो दृष्टिकोणले नयाँ प्रतिलिपिको साथ data लाई इच्छित रुपमा परिवर्तन गर्नु हो।
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Mutation गरेर Data परिबर्तन  {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
 // Now player is {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Mutation बिना data परिबर्तन {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
@@ -544,32 +544,31 @@ var newPlayer = Object.assign({}, player, {score: 2});
 // Or if you are using object spread syntax proposal, you can write:
 // var newPlayer = {...player, score: 2};
 ```
+अन्त परिणाम एकै हो तर mutate नगरेर (या अन्तर्निहित data परिवर्तन गरेर) सीधा, हामी तल वर्णन गरिएका धेरै फाइदाहरू प्राप्त गर्छौं।
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+#### जटिल सुविधाहरू सरल बनाउनुहोस् {#complex-features-become-simple}
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+Immutability ले जटिल सुविधाहरू लागू गर्न सजिलो बनाउँछ। पछि यो ट्यूटोरियलमा, हामी "समय यात्रा" सुविधा लागू गर्नेछौं जसले हामीलाई tic-tac-toe मा खेलको इतिहास समीक्षा गर्न र अघिल्लो चालहरूमा "फिर्ता जान" लाई अनुमति दिन्छ। यो कार्यक्षमता खेलहरूको लागि विशेष होइन - केही कार्यहरू पूर्ववत गर्न र केहि कार्यहरू पुन: प्रयास गर्ने क्षमताहरू अनुप्रयोगहरूमा एक सामान्य आवश्यकता हो। प्रत्यक्ष data mutation बाट जोगाउन हामीलाई खेलको इतिहासको अघिल्लो संस्करणहरू सहि राख्न सक्दछ, र पछि तिनीहरूलाई पुन: प्रयोग गर्न दिन्छ।
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+#### परिवर्तन पत्ता लगाउँदै {#detecting-changes}
 
-#### Detecting Changes {#detecting-changes}
+mutable object हरूमा परिवर्तन पत्ता लगाउन गाह्रो हुन्छ किनभने तिनीहरू सीधा परिमार्जित गरिन्छ। यो पत्ता लगाउन को लागी mutable object को आफु को पछिल्लो प्रतिलिपि  र सम्पूर्ण object tree उल्टो रुपमा तुलना को आवश्यकता पर्छ।
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Immutable object हरूमा भएको परिवर्तन पत्ता लगाउन एकदम सजिलो छ। यदि उल्लिखित immutable object अघिल्लो object भन्दा फरक छ भने, तेस्तो भएमा object परिवर्तन भएको छ।
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+#### React मा Re-Render गर्ने कहिले निर्धारण गर्ने {#determining-when-to-re-render-in-react}
 
-#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+Immutability को मुख्य लाभ यो हो कि यसले तपाईंलाई React मा _pure components_ निर्माण गर्न मद्दत गर्दछ। Immutable data सजिलैसँग निर्धारण गर्न  सकिन्छ यदि परिवर्तनहरू गरिएका छन् जसले component re-rendering आवश्यक भएको निर्धारण गर्न मद्दत गर्दछ।
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
-
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+तपाईँले `shouldComponentUpdate()` र *pure components* निर्माण गर्ने बारेमा  [Optimizing Performance](/docs/optimizing-performance.html#examples) पढेर धेरै सिक्न सक्नु हुन्छ। 
 
 ### Function Components {#function-components}
 
-We'll now change the Square to be a **function component**.
+हामी अब Square लाई  **function component** मा  परिवर्तन गर्नेछौ। 
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+React मा, **function components** component हरू लेख्ने सरल तरिका हो जसले केवल `render` method समावेश गर्दछ र तिनीहरूको आफ्नै state हुदैन। एक class परिभाषित गर्नको सट्टा जसले `React.Component` extends गर्छ, हामी एउटा function लेख्न सक्छौ जसले `props` input को रुपमा लिन्छ र rendered हुनु पर्ने कुरा फ़र्काउछ। class हरू भन्दा Function component हरू लेख्नका लागि बढी सजिलो छ, र धेरै component हरू यस तरिकाले व्यक्त गर्न सकिन्छ।
 
-Replace the Square class with this function:
+Square class लाई यो function ले बिस्थापित गरौ:
 
 ```javascript
 function Square(props) {
@@ -581,19 +580,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+हामीले `this.props` बाट `props` मा परिवर्तन गर्यौं यो दुइ पटक देखिन्छ।
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>नोट
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>जब हामी Square लाई function component मा परिमार्जन गर्यौँ, हामीले `onClick = {() => this.props.onClick ()}` लाई छोटो `onClick = {props.onClick}` मा परिवर्तन गर्यौं (*दुवै* पक्षहरूमा parentheses कमीलाई ध्यान दिनुहोस्)।
 
-### Taking Turns {#taking-turns}
+### पालो लिदा {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+अब हामी हाम्रो tic-tac-toe खेलमा स्पष्ट दोषलाइ ठीक गर्न आवश्यक छ: अहिले "O" बोर्डमा चिन्ह लगाउन सकिँदैन।
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+हामी पहिलो कदम पूर्वनिर्धारित रूपमा "X" हुन सेट गर्दछौं। हामी यो पूर्वनिर्धारित सेट गर्न  हाम्रो Board constructor मा सुरुवाती state लाई परिमार्जन गर्न सक्दछौं:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -606,7 +605,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+प्रत्येक पल्ट एक खेलाडीले चल्छ, `xIsNext` (a boolean) फ्लिप गरिने छ कुन खेलाडी अगाडी जान्छ थाहा पाउनको लागि र खेलको state बचत हुनेछ। हामी `xIsNext` को मान] फ्लिप गर्नको लागि बोर्डको `handleClick` function लाई अद्यावधिक गर्नेछौं:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -619,9 +618,9 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Try it!
+यस परिवर्तनको साथ, "X" र "O" ले पालैपालो बदल्न सक्छ। एकचोटी हेर्नुहोस!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+आउनुहोस् Board को `render` मा "status" पाठलाई पनि परिवर्तन गरौ ताकि यसले कुन खेलाडी अर्को पङ्क्तिमा छ भनेर प्रदर्शन गर्दछ:
 
 ```javascript{2}
   render() {
@@ -631,7 +630,7 @@ Let's also change the "status" text in Board's `render` so that it displays whic
       // the rest has not changed
 ```
 
-After applying these changes, you should have this Board component:
+यी परिवर्तनहरू लागू गरेपछि, तपाईंसँग Board component मा यो हुनु पर्छ:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -688,11 +687,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### विजेता घोषणा गर्दै {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+अहिले हामीले कुन खेलाडीको पालो आउदैछ भनेर देखायौ, हामी खेल जित्दा पनि देखाउनै पर्दछ र त्यहाँ कुनै अरु पालो आउदैन। यो helper function प्रतिलिपि गर्नुहोस् र फाइलको अन्त्यमा राख्नुहोस:
 
 ```javascript
 function calculateWinner(squares) {
@@ -716,9 +715,9 @@ function calculateWinner(squares) {
 }
 ```
 
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+9 वर्गहरूको array लाई दिइएको छ, यो function ले  विजेताको लागि जाँच गर्नेछ र उपयुक्त `'X'`,`'O'`, वा `null` फर्काउँछ।
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+यदि खेलाडीले जितेको छ भनी जाँच गर्नका लागि हामी बोर्डको `render` function मा `calculateWinner(squares)` कल गर्नेछौं। यदि खेलाडीले जित्यो भने, हामी "Winner: X" वा "Winner: O" जस्ता पाठ प्रदर्शन गर्न सक्छौं। हामीले Board को render function मा भएको status घोषणालाई यस कोडले बदल्छौ।
 
 ```javascript{2-8}
   render() {
@@ -734,7 +733,7 @@ We will call `calculateWinner(squares)` in the Board's `render` function to chec
       // the rest has not changed
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+यदि कसैले खेल जित्यो वा कुनै Square पहिले नै भरिएको छ भने हामीले Board को  `handleClick` function लाई परिवर्तन गरेर पहिले नै  क्लिक लाई बेवास्ता गरेर चाडै नै फर्काउन सक्छौ:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -750,21 +749,24 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
 
-## Adding Time Travel {#adding-time-travel}
+बधाई छ! तपाईं सँग अहिले काम गर्ने tic-tac-toe खेल छ। र तपाईंले पनि भखरै React को आधारभूत कुराहरू सिक्नुभयो। त्यसैले *तपाईं* शायद यहाँ वास्तविक विजेता हुनुहुन्छ।
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+## समय यात्रा थप्दै {#adding-time-travel}
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+अन्तिम अभ्यासको रूपमा, खेलको अघिल्लो चालहरूको "पुरानो समयमा फर्कन" सम्भव बनाऊ।
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+### चालहरुको अभिलेख भण्डारण गर्दै {#storing-a-history-of-moves}
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+यदि हामी `squares` array लाई mutate गर्दछौ भने, समय यात्रा लागू गर्न धेरै गाह्रो हुन्छ।
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+
+यद्यपि, हामीले प्रत्येक चाल पछि `squares` को नयाँ प्रति सिर्जना गर्न `slice()` प्रयोग गर्यौं, र [यसलाई immutable गरायौ](#why-immutability-is-important)। यसले हामीलाई `squares` array को प्रत्येक विगतको संस्करण भण्डार गर्न अनुमति दिन्छ, र पहिले भै-सकेको चालहरु बीच जान मिल्छ।
+
+
+हामी पुरानो `squares` arrays लाई अर्को array मा भण्डार गर्नेछौ जसको नाम `history` छ। `history` array ले सबै board state हरूलाई प्रतिनिधित्व गर्दछ, पहिलेबाट अन्तिम चालसम्म, र आकार यस्तो खालको छ:
 
 ```javascript
 history = [
@@ -796,15 +798,16 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+अब हामी `history` state कुन component मा राख्ने हो निर्णय गर्न आवश्यक छ।
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### फेरि, state लाई माथि लैजादा {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+हामी पहिलेका चालहरूको सूची प्रदर्शन गर्न शीर्ष-स्तरीय Game component चाहन्छौ। एस्तो गर्नको लागि `history` को पहुँचको आवश्यकता पर्दछ, त्यसैले हामी `history` state लाई शीर्ष स्तरको Game component मा राख्नेछौं।
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
 
-First, we'll set up the initial state for the Game component within its constructor:
+Game component मा `history` state राख्दा बच्चा Board component बाट `squares` state हटाउन  मद्दत गर्दछ। Square component बाट  Board component मा ["lifted state up"](#lifting-state-up) जस्तै, हामी अब Board बाट शीर्ष स्तरको Game component मा पठाउदै छौं। यसले गर्दा Board को data मा Game component ले  पूर्ण नियन्त्रण प्रदान गर्दछ, र एसले Board लाई `history` बाट अघिल्लो मोडहरू प्रदान गर्न निर्देशन दिन्छ।
+
+पहिलो, हामी यसको  Game component को constructor मा प्रारम्भिक state  सेट अप गर्नेछौं:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -834,13 +837,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+अर्को, हामीसँगको Board component ले Game component बाट  `squares` र `onClick` props प्राप्त गर्दछ। अहिले हाम्रो Board मा हामीसंग धेरै Square हरुको लागि एउटा मात्र click handler छ, कुन स्क्वायरमा क्लिक गरियो भनी सुचित गर्न हामी प्रत्येक स्क्वायरको स्थानमा `onClick` handler पठाउन आवश्यक छ। Board component परिवर्तन गर्न आवश्यक चरणहरू यहाँ छन्:
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* बोर्डको `constructor` मेटाउनुहोस्।
+* Board को `renderSquare` मा `this.state.squares[i]` लाई `this.props.squares[i]` ले बिस्थापित गर्नुहोस। 
+* Board को  `renderSquare` मा `this.handleClick(i)` लाई `this.props.onClick(i)` ले बिस्थापित गर्नुहोस।
 
-The Board component now looks like this:
+Board component अब यो जस्तो देखिन्छ:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -897,8 +900,7 @@ class Board extends React.Component {
   }
 }
 ```
-
-We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+हामी खेलको स्थिति निर्धारण गर्न र प्रदर्शन गर्न सबैभन्दा हालको history को प्रवेश प्रयोग गर्नको लागि Game component को `render` function लाई अपडेट गर्नेछौं:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -930,7 +932,7 @@ We'll update the Game component's `render` function to use the most recent histo
   }
 ```
 
-Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
+Game component अहिले खेलको स्थिति rendering गर्दै छ, हामी सम्बन्धित कोडलाई Board को `render` विधिबाट हटाउन सक्छौं। refactoring पछि, Board को `render` function यस्तो देखिन्छ:
 
 ```js{1-4}
   render() {
@@ -956,7 +958,7 @@ Since the Game component is now rendering the game's status, we can remove the c
   }
 ```
 
-Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
+अन्तमा, हामीले `handleClick` method लाई Board component बाट Game component मा सार्न आवश्यक छ।  हामीले `handleClick` लाई परिमार्जन गर्न आवश्यक छ किनकि Game component को state फरक रूपमा संरचित छ। Game को `handleClick` method भित्र, हामी नयाँ history लाई `history` मा समेट्छौं।
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -976,30 +978,30 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+>नोट
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+>array `push()` method को विपरीत तपाईँ अधिक परिचित हुन हुन्छ होला, `concat ()` method ले original array लाई mutate  गर्दैन, त्यसैले हामी यो मन पराउछौ।
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+यस समय सम्म आइ पुग्दा, Board component लाई  `renderSquare` र  `render` method हरुको  मात्र आवश्यकता छ। खेलको state र `handleClick` method चाही Game component मा हुनुपर्छ।
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### अघिल्लो चालहरू देखाउँदै {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+हामी tic-tac-toe मा खेलको history रेकर्ड गर्दैछौँ, अब हामी त्यसलाई पहिलेका चालहरूको सूचीको रूपमा खेलाडीमा देखाउन सक्छौं।
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+हामीले पहिले सिक्यौ कि React element हरू first-class JavaScript object हरू होईनन; हामी उनीहरूलाई हाम्रो application हरूमा बिचमा पास गर्न सक्छौं। React मा धेरै item हरू प्रस्तुत गर्न, हामी React element हरूको array प्रयोग गर्न सक्छौं।
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+Javascript मा, arrays सँग [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) हुन्छ जुन सामान्यतया data बाट अन्य data मा म्यापिङ गर्नको लागि प्रयोग गरिन्छ, उदाहरणका लागि:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
+`map` method प्रयोग गरेर, हामी हाम्रो पहिलेको React element हरुको चालहरू स्क्रीन मा बटनहरु देखाउन map गर्न सक्छौ, र अघिल्लो चालहरूमा "jump" गर्न बटनहरूको सूची प्रदर्शन गर्दछौ।
 
-Let's `map` over the `history` in the Game's `render` method:
+Game को `render` method मा `history` लाई `map` गरौं।
 
 ```javascript{6-15,34}
   render() {
@@ -1042,56 +1044,55 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+Tic-tac-toe खेलको history मा प्रत्येक चालको लागि, हामी एक सूची वस्तु `<li>` बनाउछौ जसमा एउटा बटन हुन्छ  `<button>`। बटनमा `onClick` ह्यान्डलर छ जसले `this.jumpTo()` भनिने method कल गर्छ। हामीले अहिलेसम्म `jumpTo()` method लागू गरेको छैनौ। अहिलेको लागि, हामी खेलमा भएको चालहरुको सुची  र विकासकर्ता उपकरण console मा एउटा चेतावनी हेर्नुपर्छ जसले यसो भन्छ:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
 
-Let's discuss what the above warning means.
+आउनुहोस् माथि उल्लिखित चेतावनीको बारेमा छलफल गरौं।
 
-### Picking a Key {#picking-a-key}
+### Key छान्दै {#picking-a-key}
 
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
+जब हामी एक list  render गर्छौं, React ले प्रत्येक rendered list item बारे केहि जानकारी भण्डारण गर्दछ। जब हामी एउटा list अपडेट गर्छौं, React ले के परिवर्तन भएको छ थाहा पाउन आवश्यक छ। हामी थप्न, हटाउन, पुन:मिलाउन वा list को चीजहरू अद्यावधिक गर्न सक्थ्यौं।
 
-Imagine transitioning from
+transitioning कल्पना गर्नुहोस्
 
 ```html
 <li>Alexa: 7 tasks left</li>
 <li>Ben: 5 tasks left</li>
 ```
-
-to
+बाट 
 
 ```html
 <li>Ben: 9 tasks left</li>
 <li>Claudia: 8 tasks left</li>
 <li>Alexa: 5 tasks left</li>
 ```
+मा
 
-In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+अद्यावधिक गरिएका गणनाहरूको अतिरिक्त, एक मानव पढाइले शायद हामी Alexa र Ben को क्रम परिवर्तन र Alexa र Ben बीच Claudia घुमाएको छ भनेर भन्न सक्नेछ। यद्यपि, React एउटा कम्प्यूटर प्रोग्राम हो र हामी के गर्न चाहन्छौ त्यो React ले थाहा पाउदैन। किनकि React ले हाम्रो अभिप्रायहरू थाहा पाउन सक्दैन, हामीले प्रत्येक list item को लागि *key* property निर्दिष्ट गर्न आवश्यक छ किनकि प्रत्येक list item  siblings हरूसंग अलग हुनुपर्छ। एक विकल्प strings `alexa`,` ben`, `claudia` को प्रयोग गर्ने हुनेछ। यदि हामीले डेटाबेसबाट data प्रदर्शन गर्दै छौ भने, Alexa, Ben, र Claudia को डेटाबेस ID  हरु  keys को  रूपमा प्रयोग गर्न सकिन्छ।
 
 ```html
 <li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
 ```
+जब list  पुन: render गरिएको हुन्छ, React ले प्रत्येक list item को key लिन्छ र मिल्दो key को लागि अघिल्लो list को item हरू खोजी गर्दछ।  यदि हालको list मा एक key छ जुन आघिल्लोमा अवस्थित छैन भने, React ले एक component बनाउछ। यदि हालको list मा  अघिल्लो list मा अवस्थित key हराइरहेको छ भने, React ले अघिल्लो component नष्ट गर्दछ। यदि दुई key हरू मेल खान्छ भने, सम्बन्धित component सारिन्छ। key हरुले React लाई प्रत्येक component को पहिचानको बारेमा बताउँछन जसले React लाई पुन: render हुदा state लाई मिलाएर राख्न सहयोग पुर्याउँछ। यदि component को key परिबर्तनहरु हुन्छ भने, component नाश गरिनेछ र नयाँ state को साथमा पुन: सिर्जना गरिनेछ।
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+`key` React मा एक विशेष र सुरक्षित property हो (`ref` सहित, एक थप उन्नत सुविधा)। जब एक element बनाइन्छ, React ले `key` property निकाल्छ र key लाई सीधा फर्काइएको element मा भण्डार गर्दछ। यद्यपि `key` चाही `props` मा पर्न सक्छ जस्तो लाग्न सक्छ, `key` लाई `this.props.key` प्रयोग गरी गर्न सकिँदैन। कुन component अद्यावधिक गर्ने भनि निर्णय गर्न React ले स्वचालित रूपमा `key` प्रयोग गर्दछ। Component ले यसको `key` को बारेमा सोध्न सक्दैन।
 
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
+**यो दृढतापूर्वक सिफारिस गरिएको छ कि जब तपाइँ dynamic list हरू बनाउनुहुन्छ तपाईले सही key हरू प्रदान गर्नुहुन्छ।** यदि तपाईंसँग उपयुक्त key छैन भने, तपाइँ आफ्नो data फेरी बनाउने विचार गर्न चाहानुहुन्छ होला जुन तपाईंले गर्नुपर्छ।
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+यदि key निर्दिष्ट गरिएको छैन भने, React ले चेतावनी प्रस्तुत गर्नेछ र पूर्वनिर्धारित रूपमा array index को key प्रयोग गर्नेछ। key को रूपमा array index प्रयोग गर्दा list को item पुन:क्रम मिलाउने वा list item हरू हाल्ने/हटाउने प्रयास गर्दा समस्याग्रस्त हुन्छ।  स्पष्ट रूपमा `key = {i}` लाई पठाउदा चेतावनीलाइ रोक्छ तर array indices मा पहिलेको जस्तै समस्या छ र धेरै परिस्थितिहरूमा सिफारिस गरिएको छैन।
 
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
-
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+Key हरू सबै component मा अद्वितीय हुन आवश्यक छैन; तिनीहरू केवल component र तिनीहरूका sibling हरूको बीचमा अद्वितीय हुनु आवश्यक छ।
 
 
-### Implementing Time Travel {#implementing-time-travel}
+### समय यात्रा कार्यान्वयन{#implementing-time-travel}
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+tic-tac-toe खेलको history मा, प्रत्येक विगतको चालसँग सम्बन्धित कुनै अद्वितीय ID छ: यो चालको अनुक्रमिक संख्या हो। चालहरू कहिल्यै पुन:क्रम, मेटाउने वा बीचमा हाल्ने गरिएको छैन, त्यसैले यो चाल index लाई key को रूपमा प्रयोग गर्न सुरक्षित छ।
 
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+Game component को `render` method मा, हामी key को रूपमा `<li key = {move}>`  थप्न सक्दछौ र key हरूको लागि आएको React को चेतावनी गायब हुनुपर्छ:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1106,11 +1107,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+कुनै list item को बटन क्लिक गर्नाले error फाल्छ किनभने `jumpTo` method अपरिभाषित छ। `JumpTo` लाई लागू गर्नु अघि, हामी Game component को state मा `stepNumber` थप्ने छौ जसले गर्दा हामी कुन चरण हेर्दै छौं भन्ने थाहा हुन्छ।
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+सर्बप्रथम, Game को `constructor` मा प्रारम्भिक state मा `stepNumber: 0` थप गर्नुहोस्:
 
 ```js{8}
 class Game extends React.Component {
@@ -1126,7 +1127,7 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+अर्को, हामी `stepNumber` लाई अपडेट गर्नको लागि `jumpTo` method Game मा परिभाषित गर्नेछौं। हामीले `XIsNext` लाई पनि true सेट गर्छौ यदि हामीले `stepNumber` मा परिवर्तन गरेको नम्बर जोर छ भने:
 
 ```javascript{5-10}
   handleClick(i) {
@@ -1145,11 +1146,11 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+हामी अब Game को `handleClick` method मा केहि परिवर्तनहरू गर्नेछौं जुन method तपाईले square मा क्लिक गर्दा कल हुन्छ।
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+हामीले थपेको `StepNumber` state ले अहिले प्रयोगकर्तालाई देखाइएको चाललाई प्रतिबिम्बित गर्दछ।  हामी नयाँ चाल चलेपछि, `stepNumber: history.length` लाइ `this.setState` argument को भागको रूपमा राखेर `stepNumber` लाई अपडेट गर्न आवश्यक छ। यसले हामी एक नयाँ चाल पछि फेरी पहिलेको चालमा नै अड्किदैन भन्ने सुनिश्चित गर्दछ।
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+हामी `this.state.history` लाई पनि `this.state.history.slice(0, this.state.stepNumber + 1)` ले प्रतिस्थापित गर्नेछौ।  यसले यो सुनिश्चित गर्दछ कि यदि हामी "पहिलेको समयमा फिर्ता जान्छौ" र त्यस बिंदु बाट एक नया चाल चल्छौ भने, हामी सबै "future" history पर फ्याकिदिन्छौ जसले गर्दा future history गलत हुनेछ।
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1170,7 +1171,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+अन्ततः, हामी `stepNumber` को अनुसार अन्तिम चरण render गरेर हालै चयन गरिएको चाल render गर्न  Game component को `render` method परिमार्जन गर्नेछौं:
 
 ```javascript{3}
   render() {
@@ -1181,30 +1182,31 @@ Finally, we will modify the Game component's `render` method from always renderi
     // the rest has not changed
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+यदि हामी खेलको history मा कुनै पनि चरणमा क्लिक गर्छौं भने, tic-tac-toe board ले चरण पछि बोर्ड कस्तो देखिन्छ भनेर देखाउन तुरुन्तै अद्यावधिक गर्नैपर्छ।
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### टुङ्गाउदै {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+बधाई छ! तपाईंले एउटा tic-tac-toe खेल बनाउनु भएको छ:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* तपाइँले tic-tac-toe खेल खेल्नुहोस,
+* खेलाडीले खेल जितेको बेला सूचित गर्दछ,
+* खेलको प्रगतिको रूपमा खेलको इतिहास भण्डार गर्दछ,
+* खेलाडीहरूलाई खेलको इतिहास समीक्षा गर्न र खेलको बोर्डको अघिल्लो संस्करणहरू हेर्न अनुमति दिन्छ।
 
-Nice work! We hope you now feel like you have a decent grasp on how React works.
+राम्रो काम! हामी आशा गर्छौं कि तपाई अब React ले कसरी काम गर्दछ भनेर उचित ज्ञान पाउनुभयो।
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+अन्तिम परिणाम यहाँ जाँच गर्नुहोस्: **[अन्तिम परिणाम](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+यदि तपाईंसँग अतिरिक्त समय छ वा तपाईंको नयाँ React कुशलताहरू अभ्यास गर्न चाहनुहुन्छ भने, यहाँ केहि सुझावहरू छन् जुन तपाइँले tic-tac-toe खेलमा सुधार गर्न सक्नुहुनेछ जुन कठिनाइ बढ्दो रुपमा क्रमबद्ध गरिएको छ:
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+1. प्रत्येक चालको लागि सार्दा इतिहास सूचीमा ढाँचा (col, row) मा स्थान प्रदर्शन गर्नुहोस्।
+2. चाल सूचीमा हालै चयन गरिएको item लाई बोल्ड गर्नुहोस्।
+3. hardcoding गर्नुको सट्टा दुई loops प्रयोग गर्न squares बनाउनुहोस तेस्को लागि Board पुन: लेख्नुहोस।
+4. एक toggle बटन बनाउनुहोस जसले तपाईंलाई बढ्दो वा घट्दो क्रममा चालहरू क्रमबद्ध गर्दछ।
+5. जब कसैले जीत्यो भने, तीनवटा squares जसबाट खेल जितेको छ तिनीहरुलाई हाइलाइट गर्नुहोस।
+6. जब कसैले पनि जित्दैन, कसैले जित्न नसकेको नतिजाको बारेमा जानकारी प्रदर्शन गर्नुहोस्।
+
+यस ट्यूटोरियलको दौरान, हामी element हरू, component हरू, prop हरू, र state सहित React अवधारणाहरूमा ध्यान दियौ। यी प्रत्येक विषयहरूको थप विस्तृत व्याख्याको लागि, जाँच गर्नुहोस् [बाँकी documentation](/docs/hello-world.html)। component परिभाषित गर्ने बारेमा बढी जान्नको लागि, [`React.Component` API reference](/docs/react-component.html) जाँच गर्नुहोस्।
