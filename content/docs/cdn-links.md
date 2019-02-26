@@ -1,37 +1,37 @@
 ---
 id: cdn-links
-title: CDN Links
+title: CDN लिङ्कहरू
 permalink: docs/cdn-links.html
 prev: create-a-new-react-app.html
 next: hello-world.html
 ---
 
-Both React and ReactDOM are available over a CDN.
+दुबै React र ReactDOM हरु CDN मा उपलब्ध छन्।
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-The versions above are only meant for development, and are not suitable for production. Minified and optimized production versions of React are available at:
+माथिको संस्करणहरू केवल डेभलपमेन्टका/विकासका लागि मात्र हुन्, र प्रोडक्सनको/उत्पादनको लागि उपयुक्त छैन। React को संकुचित र अनुकूलित बनाईएको संस्करणहरू यहाँ उपलब्ध छन्:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-To load a specific version of `react` and `react-dom`, replace `16` with the version number.
+`react` र `react-dom` को विशेष संस्करण प्रयोग गर्नको लागि, `16` लाई संस्करण अंकले बदल्नुहोस।
 
-### Why the `crossorigin` Attribute? {#why-the-crossorigin-attribute}
+### हामीलाई `crossorigin` विशेषता किन चाहिन्छ? {#why-the-crossorigin-attribute}
 
-If you serve React from a CDN, we recommend to keep the [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute set:
+यदि तपाइँ CDN बाट React सेवा लिनुहुन्छ भने, हामी [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) विशेषता प्रयोग गर्न सल्लाह दिन्छौं:
 
 ```html
 <script crossorigin src="..."></script>
 ```
 
-We also recommend to verify that the CDN you are using sets the `Access-Control-Allow-Origin: *` HTTP header:
+हामी तपाईंलाई यो प्रमाणित गर्न सल्लाह दिन्छौ कि तपाईंले प्रयोग गर्नुभएको CDN ले `Access-Control-Allow-Origin: *` HTTP हेडर सेट गरेको छ।
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-This enables a better [error handling experience](/blog/2017/07/26/error-handling-in-react-16.html) in React 16 and later.
+यसले React १६ र पछिका संस्करणहरुमा [त्रुटिहरु अझ राम्रोसंग सम्हाल्ने अनुभव](/blog/2017/07/26/error-handling-in-react-16.html) प्रदान गर्दछ।
