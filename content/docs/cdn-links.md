@@ -13,7 +13,7 @@ next: hello-world.html
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-माथिको संस्करणहरू केवल डेभलपमेन्टका/विकासका लागि मात्र हुन्, र प्रोडक्सनको/उत्पादनको लागि उपयुक्त छैन। React को संकुचित र अनुकूलित बनाईएको संस्करणहरू यहाँ उपलब्ध छन्:
+माथिको संस्करणहरू केवल डेभलपमेन्टका लागि मात्र हुन्, र प्रोडक्सनको लागि उपयुक्त छैन। React को संकुचित र अनुकूलित बनाईएको संस्करणहरू यहाँ उपलब्ध छन्:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
