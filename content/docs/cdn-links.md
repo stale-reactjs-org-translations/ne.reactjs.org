@@ -22,9 +22,9 @@ next: hello-world.html
 
 `react` र `react-dom` को विशेष संस्करण प्रयोग गर्नको लागि, `16` लाई संस्करण अंकले बदल्नुहोस।
 
-### हामीलाई `crossorigin` विशेषता किन चाहिन्छ? {#why-the-crossorigin-attribute}
+### हामीलाई `crossorigin` Attribute किन चाहिन्छ? {#why-the-crossorigin-attribute}
 
-यदि तपाइँ CDN बाट React सेवा लिनुहुन्छ भने, हामी [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) विशेषता प्रयोग गर्न सल्लाह दिन्छौं:
+यदि तपाइँ CDN बाट React सेवा लिनुहुन्छ भने, हामी [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute प्रयोग गर्न सल्लाह दिन्छौं:
 
 ```html
 <script crossorigin src="..."></script>
