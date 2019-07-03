@@ -16,7 +16,11 @@ redirect_from:
 
 ## ट्यूटोरियल सुरु गर्नु अघि {#before-we-start-the-tutorial}
 
+<<<<<<< HEAD
 ट्यूटोरियलको दौरानमा हामी सानो खेलको निर्माण गर्ने छौ। **सायद तपाई यसलाई पढ्न चाहनुहुन्न किनकी तपाइलाई खेलहरु निर्माण गर्नु छैन -- तर एक चोटी पढ्नुहोस।** तपाइले यो ट्यूटोरियलमा सिक्नुहुने तरिकाहरु जुनसुकै React apps बनाउन चाहिने आधारभूत कुराहरु हुन, र यो कुराहरुमा माहिर हुनु भयो भने तपाइले React गहनरुपमा बुझ्न सक्नु हुनेछ।
+=======
+We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
+>>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 >सुझाव
 >
