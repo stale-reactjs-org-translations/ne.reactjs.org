@@ -8,68 +8,68 @@ prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Elements are the smallest building blocks of React apps.
+Element हरू React एप्सको निर्माण ब्लकहरु हुन्।
 
-An element describes what you want to see on the screen:
+एक element ले तपाइँ स्क्रीनमा हेर्न चाहनुहुन्छ वर्णन गर्दछ:
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+ब्राउजरको DOM element हरूको विपरीत, React element हरु सादा objects हुन्, र बनाउदा सस्तो हुन्छ। React DOM ले React element हरूसँग मिलाउन DOM लाई अद्यावधिक गर्न हेरचाह गर्दछ।
 
->**Note:**
+>**नोट:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/docs/components-and-props.html). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+>"components" को अधिक व्यापक रूपमा ज्ञात अवधारणा हुनाले elements बाट भ्रमित हुन सकिन्छ। हामी [अर्को खण्डमा](/docs/components-and-props.html) component हरूको परिचय गर्नेछौं। element हरूबाट component हरु  "बनेको हुन्छन", र हामी अघि बढ्नु अघि यो खण्ड पढ्न प्रोत्साहन गर्दछौं।
 
-## Rendering an Element into the DOM {#rendering-an-element-into-the-dom}
+## एउटा Element DOM मा render गर्दै {#rendering-an-element-into-the-dom}
 
-Let's say there is a `<div>` somewhere in your HTML file:
+हेरौ त्यहाँ एउटा  `<div>` तपाईको HTML फाइल भित्र कतै छ:
 
 ```html
 <div id="root"></div>
 ```
 
-We call this a "root" DOM node because everything inside it will be managed by React DOM.
+हामी यसलाई एक "root" DOM node भन्छौं किनभने यसको भित्र सबै चीजहरू React DOM द्वारा व्यवस्थित गरिनेछ।
 
-Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+प्राय: React मात्र प्रयोग गरी निर्मित Application हरुमा  एउटा root DOM node हुन्छ। यदि तपाइँ एक अवस्थित app मा React प्रयोग गर्नु भएको छ भने, तपाईंलाई जस्तो मनपर्छ तेस्तो धेरै अलग root DOM node हरू हुन सक्दछ।
 
-To render a React element into a root DOM node, pass both to `ReactDOM.render()`:
+root DOM node मा एक react element render गर्न, दुवै लाई  `ReactDOM.render()` मा पास गर्नुहोस:
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+[कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/render-an-element)
 
-It displays "Hello, world" on the page.
+यसले पेजमा "Hello, world" देखाउँछ।
 
-## Updating the Rendered Element {#updating-the-rendered-element}
+## Render गरिएको Element अपडेट गर्दै {#updating-the-rendered-element}
 
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+React elements [immutable](https://en.wikipedia.org/wiki/Immutable_object) हुन्छन। एकपटक तपाईंले एक element बनाएपछि, तपाईं एस्को child वा attributes परिवर्तन गर्न सक्नुहुन्न। चलचित्रमा हुने एक एकल फ्रेम जस्तै एक element हो: यो निश्चित समयमा UI को प्रतिनिधित्व गर्दछ।
 
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `ReactDOM.render()`.
+अहिले सम्मको ज्ञान बाट यो कुरा थाहा पाउछौ कि, UI अद्यावधिक गर्न को लागि एकमात्र तरीका एक नयाँ element बनाउनु हो, र यसलाई `ReactDOM.render ()` मा पठाउनु पर्छ।
 
-Consider this ticking clock example:
+यो चालु घडीको उदाहरणलाई विचार गर्नुहोस्:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+[कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/update-rendered-element)
 
-It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+यसले `ReactDOM.render()` लाई हरेक सेकेन्डमा [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback बाट कल गर्दछ।
 
->**Note:**
+>**नोट:**
 >
->In practice, most React apps only call `ReactDOM.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>धेरैजसो, अधिकांश React app हरुले `ReactDOM.render()` एक पटक मात्र कल गर्छ।अर्को खण्डमा हामी यो कोडले [stateful components](/docs/state-and-lifecycle.html) मा कसरी encapsulated हुन्छ भन्ने सिक्छौं।
 >
->We recommend that you don't skip topics because they build on each other.
+>हामी तपाईलाई विषयहरू नछोड्न सिफारिस गर्दछौं किनकि तिनीहरू एकअर्कामा बनेको हुन्छन।
 
-## React Only Updates What's Necessary {#react-only-updates-whats-necessary}
+## React ले जे आवश्यक छ त्यहि अपडेट गर्छ {#react-only-updates-whats-necessary}
 
-React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM ले element र यसको बच्चाहरूलाई अघिल्लो DOM संग तुलना गर्दछ, र केवल  DOM लाई चाहिएको state मा ल्याउन आवश्यक पर्ने DOM मात्र अद्यावधिक हुन्छ।
 
-You can verify by inspecting the [last example](codepen://rendering-elements/update-rendered-element) with the browser tools:
+तपाइँ ब्राउजर उपकरणहरूसँग [अन्तिम उदाहरण](codepen://rendering-elements/update-rendered-element) निरीक्षण गरेर प्रमाणित गर्न सक्नुहुन्छ:
 
 ![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
+यद्यपि हामी प्रत्येक tick मा पुरा UI रूख वर्णन गर्दै एक तत्व सिर्जना गर्छौं, केवल text node जसको सामग्रीहरू परिवर्तन भएको हुन्छ त्यही मात्र React DOM द्वारा अद्यावधिक हुन्छ।
 
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
+हाम्रो अनुभवमा, UI लाई केहि समयपछि कसरी परिबर्तन गर्ने सोच्नुको सट्टा UI लाई अहिले कसरि देखाउने भनेर विचार गर्ने हो भने सबै bug हरु हट्छ।
