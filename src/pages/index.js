@@ -50,8 +50,10 @@ class Home extends Component {
     return (
       <Layout location={location}>
         <TitleAndMetaTags
-          title="React &ndash; A JavaScript library for building user interfaces"
+ 
+          title="React &ndash; प्रयोगकर्ता इन्टरफेसहरू सिर्जना गर्ने जाभास्क्रिप्ट लाइब्रेरी"
           canonicalUrl={createCanonicalUrl('/')}
+ 
         />
         <div css={{width: '100%'}}>
           <header
@@ -133,7 +135,8 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    A JavaScript library for building user interfaces
+                    प्रयोगकर्ता इन्टरफेसहरू सिर्जना गर्ने जाभास्क्रिप्ट
+                    लाइब्रेरी
                   </p>
                   <Flex
                     valign="center"
@@ -151,12 +154,12 @@ class Home extends Component {
                       <ButtonLink
                         to="/docs/getting-started.html"
                         type="primary">
-                        Get Started
+                        सुरू गर्नुहोस्
                       </ButtonLink>
                     </CtaItem>
                     <CtaItem>
                       <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                        Take the Tutorial
+                        ट्यूटोरियल हेर्नुहोस्
                       </ButtonLink>
                     </CtaItem>
                   </Flex>
@@ -294,12 +297,12 @@ class Home extends Component {
                 }}>
                 <CtaItem>
                   <ButtonLink to="/docs/getting-started.html" type="primary">
-                    Get Started
+                    सुरू गर्नुहोस्
                   </ButtonLink>
                 </CtaItem>
                 <CtaItem>
                   <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                    Take the Tutorial
+                    ट्यूटोरियल हेर्नुहोस्
                   </ButtonLink>
                 </CtaItem>
               </Flex>
