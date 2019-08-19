@@ -16,13 +16,14 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Component हरूबाट तपाईंले UI लाई स्वतन्त्र रुपमा विभाजित गर्न सक्नुहुन्छ, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+componentहरूबाट तपाईंले UI लाई स्वतन्त्रा रूपमा  विभाजन  गर्न , पुन: प्रयोज्य टुक्राहरूमा विभाजन गर्न  र प्रत्येक टुक्रालाई अलग अलग  रूपमा सोच्न सक्नुहुन्छ।यस पृष्ठले componentsको विचारलाई  परिचय प्रदान गर्दछ। तपाईंले यो linkमा क्लिक गर्नुभयो भने  componet APIको बारेमा विस्तृत  जानकारी प्राप्त गर्न सक्नुहुन्छ [detailed component API reference here](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+अवधारणागत रूपमा, componentहरू JavaScript functions जस्तै हुन्। तिनीहरू मध्यस्थ इनपुट  (“props” भनिन्छ) लिन्छन् र स्क्रिनमा के देखा पर्दछ भनेर वर्णन गर्ने Reactको elements फिर्ता गर्दछन्।
 
-## Function and Class Components {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+## Function र Class Components {#function-and-class-components}
+
+component परिभाषित गर्ने सब भन्दा साधारण तरीका भनेको JavaScript functions लेख्नु हो:
 
 ```js
 function Welcome(props) {
@@ -30,9 +31,9 @@ function Welcome(props) {
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+यो function मान्य React component हो किनकि यसले एकल “props” ("proporties" भनिन्छ) object आर्गुमेन्ट डाटाको साथ लीने गर्दछ र React एलिमेट्स फिर्ता गर्दछ।  त्यस्ता कम्पोनेन्टहरूलाई हामी  “function components”  भन्छौं किनभने तिनीहरू शाब्दिक JavaScript functions हुन्। 
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+तपाईंले component परिभाषित गर्न एक [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) पनि प्रयोग गर्न सक्नुहुनेछ :
 
 ```js
 class Welcome extends React.Component {
@@ -42,25 +43,28 @@ class Welcome extends React.Component {
 }
 ```
 
-The above two components are equivalent from React's point of view.
+माथिका दुई componentहरू Reactको  दृष्टिकोणमा बराबर छन्।
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+
+Classहरूका केहि अतिरिक्त विशेषताहरु  पनि छन् जुन हामी [अर्को खण्डमा](/docs/state-and-lifecycle.html) छलफल गर्नेछौं। त्यतिन्जेल, हामी तिनीहरूको संक्षिप्तताका लागि function components प्रयोग गर्नेछौं।
+
 
 ## Rendering a Component {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+अहिले सम्म,हामीलाई React elementsले  DOM ट्यागको प्रतिनिधित्व को बारेमा मात्र  थाहा छ:
+:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+यद्यपि React elementsले user-defined componentहरू पनि प्रतिनिधित्व गर्न सक्दछन्:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+जब  Reactले  elementले  user-defined componentको  प्रतिनिधित्व गरेको देख्छ, यसले JSX एट्रिब्यूटहरू एकल objectको रूपमा यस कम्पोनेन्टमा पठाउँछ। हामी यो objectलाई "props" भन्छौं।
 
 For example, this code renders "Hello, Sara" on the page:
 
