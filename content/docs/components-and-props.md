@@ -51,14 +51,14 @@ Classहरूका केहि अतिरिक्त विशेषता
 
 ## Rendering a Component {#rendering-a-component}
 
-अहिले सम्म,हामीलाई React elementsले  DOM ट्यागको प्रतिनिधित्व को बारेमा मात्र  थाहा छ:
+अहिले सम्म,हामीलाई React elementsले  DOM ट्यागको प्रतिनिधित्व गरेको बारेमा मात्र  थाहा छ:
 :
 
 ```js
 const element = <div />;
 ```
 
-यद्यपि React elementsले user-defined componentहरू पनि प्रतिनिधित्व गर्न सक्दछन्:
+यद्यपि React elementsले user-defined componentहरूको पनि प्रतिनिधित्व गर्न सक्दछन्:
 
 ```js
 const element = <Welcome name="Sara" />;
