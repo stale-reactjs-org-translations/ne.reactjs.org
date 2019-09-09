@@ -334,7 +334,11 @@ Square को `render` मेथोड मा `onClick` handler बाट `this.
 React DevTools ले तपाईंलाई props र तपाईंको React components को  अवस्था जाँच गर्न दिन्छ।
 
 
+<<<<<<< HEAD
 React  DevTools स्थापना पछि, तपाईं पृष्ठको कुनैपनि भागमा दायाँ क्लिक गर्न सक्नुहुन्छ, विकासकर्ता उपकरण खोल्नका लागि "inspect" मा क्लिक गर्नुहोस्, र React  ट्याब अन्तिम ट्याबको रूपमा दायाँतिर देखा पर्नेछ।
+=======
+After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
+>>>>>>> 8b30ae43439818009213da86eca872a3d869c5eb
 
 **तथापि, नोट CodePen सँग काम गर्न केही थप चरणहरू छन्:**
 
