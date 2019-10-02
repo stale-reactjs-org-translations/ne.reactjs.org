@@ -117,7 +117,11 @@ import './index.css';
 
 ### गाह्रो पर्यो, मलाई सहयोग गर्नुहोस! {#help-im-stuck}
 
+<<<<<<< HEAD
 यदि तपाईं अड्कनुभयो भने, [समुदाय समर्थन स्रोतहरू](/community/support.html) हेर्नुहोस्। विशेष गरी, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) मद्दत छिटो प्राप्त गर्न एक राम्रो तरिका हो। यदि तपाईंले जवाफ प्राप्त गर्नुभएन भने, वा तपाईं अड्कनु भएको छ भने, कृपया एउटा issue  फाइल गर्नुहोस्, र हामी तपाईंलाई मद्दत गर्नेछौं।
+=======
+If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## अवलोकन {#overview}
 
