@@ -105,11 +105,11 @@ class Clock extends React.Component {
 
 प्रत्येक चोटि अपडेट हुने बित्तिकै `render` मेथड चल्नेछ, तर जबसम्म हामी उहि DOM नोडमा `<Clock />` रेन्डर गर्दछौं `Clock` classको एक मात्र instance पप्रयोग गरिने छ। यसले हामीलाई थप सुविधाहरू जस्तै लोकल state र लाइफसाइकल मेथडहरू प्रयोग गर्न दिन्छ।
 
-## Adding Local State to a Class {#adding-local-state-to-a-class}
+## Classमा लोकल State थप्ने विधि {#adding-local-state-to-a-class}
 
-We will move the `date` from props to state in three steps:
+हामी `date`लाई propsबाट stateमा तीन चरणमा सार्नेछौं।
 
-1) Replace `this.props.date` with `this.state.date` in the `render()` method:
+1) `render()` मेथडमा `this.props.date`लाई `this.state.date`ले बदल्नुहोस्।
 
 ```js{6}
 class Clock extends React.Component {
@@ -124,7 +124,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Add a [class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) that assigns the initial `this.state`:
+2) [Class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) थप्नुहोस् जसले प्रारम्भिक `this.state` प्रदान गर्दछ।
 
 ```js{4}
 class Clock extends React.Component {
@@ -143,8 +143,7 @@ class Clock extends React.Component {
   }
 }
 ```
-
-Note how we pass `props` to the base constructor:
+हामी कसरी base कन्स्ट्रक्टरमा `props` पास गर्छौं नोट गर्नुहोस्।
 
 ```js{2}
   constructor(props) {
@@ -153,9 +152,9 @@ Note how we pass `props` to the base constructor:
   }
 ```
 
-Class components should always call the base constructor with `props`.
+Class कम्पोनेन्टहरू सँधै base कन्स्ट्रक्टरलाई `props`को साथ कल गर्नुपर्दछ।
 
-3) Remove the `date` prop from the `<Clock />` element:
+3) `<Clock />` एलिमेन्टबाट `date` prop हटाउनुहोस्:
 
 ```js{2}
 ReactDOM.render(
@@ -164,9 +163,9 @@ ReactDOM.render(
 );
 ```
 
-We will later add the timer code back to the component itself.
+हामी पछि टाइमर कोड कम्पोनेन्टमा फिर्ता थप्नेछौं।
 
-The result looks like this:
+परिणाम यस्तो देखिन्छ
 
 ```js{2-5,11,18}
 class Clock extends React.Component {
@@ -193,17 +192,17 @@ ReactDOM.render(
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Next, we'll make the `Clock` set up its own timer and update itself every second.
+अर्को, हामी `Clock` लाई यसको आफ्नै टाइमर सेटअप गर्नेछौं र प्रत्येक सेकेन्डमा आफैं अपडेट गर्ने बनाउनेछौं।
 
-## Adding Lifecycle Methods to a Class {#adding-lifecycle-methods-to-a-class}
+## Classमा लाइफसाइकल मेथड थप्ने विधि {#adding-lifecycle-methods-to-a-class}
 
-In applications with many components, it's very important to free up resources taken by the components when they are destroyed.
+धेरै कम्पोनेन्टहरू सहितको Applicationहरूमा कम्पोनेन्टहरू नष्ट हुने बित्तिकै कम्पोनेन्टहरू द्वारा लिइएको स्रोतहरू खाली गर्न यो धेरै महत्त्वपूर्ण छ।
 
-We want to [set up a timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) whenever the `Clock` is rendered to the DOM for the first time. This is called "mounting" in React.
+हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं जब `Clock` पहिलो पटक DOM लाई रेन्डर गरिन्छ। यसलाई Reactमा "Mounting" भनिन्छ।
 
-We also want to [clear that timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) whenever the DOM produced by the `Clock` is removed. This is called "unmounting" in React.
+हामी पनि [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) चाहन्छौं जब `Clock` द्वारा निर्मित DOM हटाईन्छ। यसलाई Reactमा "Unmounting" भनिन्छ।
 
-We can declare special methods on the component class to run some code when a component mounts and unmounts:
+कम्पोनेन्ट classमा केहि कोडहरू चलाउन हामी विशेष मेथडहरू घोषणा गर्न सक्दछौं जब एक कम्पोनेन्टले माउन्ट र अनमाउन्ट गर्दछ:
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -231,9 +230,9 @@ class Clock extends React.Component {
 }
 ```
 
-These methods are called "lifecycle methods".
+यी मेथडहरूलाई "लाइफसाइकल मेथड" भनिन्छ।
 
-The `componentDidMount()` method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
+कम्पोनेन्ट आउटपुट DOMमा रेन्डर गरिसकेपछि `componentDidMount()` मेथड चल्छ। यो टाइमर सेटअप गर्नको लागि राम्रो स्थान हो
 
 ```js{2-5}
   componentDidMount() {
@@ -244,11 +243,11 @@ The `componentDidMount()` method runs after the component output has been render
   }
 ```
 
-Note how we save the timer ID right on `this` (`this.timerID`).
+नोट गर्नुहोस् हामी `this`मा टाइमर आईडी कसरी भण्डारण गर्छौं। (`this.timerID`)
 
-While `this.props` is set up by React itself and `this.state` has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).
+जबकि `this.prop` आफैं Reactद्वारा सेट अप गरिएको छ र` this.state` को एक विशेष अर्थ छ, यदि तपाईले डेटा प्रवाहमा भाग नलिएको कुरा भण्डारण गर्नुपर्छ भने तपाई classमा म्यानुअल तरीकाले थप फाईलहरू थप्न स्वतन्त्र हुनुहुन्छ (एक टाईमर आईडी जस्तै)।
 
-We will tear down the timer in the `componentWillUnmount()` lifecycle method:
+हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल मेथडमा फाल्नेछौं
 
 ```js{2}
   componentWillUnmount() {
@@ -256,9 +255,9 @@ We will tear down the timer in the `componentWillUnmount()` lifecycle method:
   }
 ```
 
-Finally, we will implement a method called `tick()` that the `Clock` component will run every second.
+अन्तमा हामी `tick()` भनिने मेथड निर्माण गर्नेछौं ताकि `Clock` कम्पोनेन्ट प्रत्येक सेकेन्डमा चल्नेछ।
 
-It will use `this.setState()` to schedule updates to the component local state:
+यसले कम्पोनेन्टको लोकल stateमा अपडेटहरू अनुसूची गर्न `this.setState()` प्रयोग गर्दछ
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -302,37 +301,37 @@ ReactDOM.render(
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
-Now the clock ticks every second.
+अब प्रत्येक सेकेन्डमा घडी टिक्दछ।
 
-Let's quickly recap what's going on and the order in which the methods are called:
+चाँडै के हुँदैछ र कुन क्रममा मेथडहरू चल्नेछ भनेर पुन: संक्षेप गरौं
 
-1) When `<Clock />` is passed to `ReactDOM.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+1) जब `<Clock />` लाई `ReactDOM.render()` मा पठाइन्छ, React ले `Clock` कम्पोनेन्टको कन्स्ट्रक्टरलाई कल गर्दछ। किनकि `<Clock />`मा वर्तमान समय प्रदर्शन गर्न आवश्यक छ, यसले `this.state` वर्तमान समय सहितको objectको साथमा आरम्भ गर्छ। हामी पछि यो state अपडेट गर्नेछौं।
 
-2) React then calls the `Clock` component's `render()` method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the `Clock`'s render output.
+2) React तब `Clock` कम्पोनेन्टको `render()` मेथड कल गर्दछ। Reactले स्क्रिनमा प्रदर्शन हुने कुरा यसरी सिक्छ। `Clock`को रेन्डर आउटपुटसँग मेल गर्न Reactले तब DOM अपडेट गर्दछ।
 
-3) When the `Clock` output is inserted in the DOM, React calls the `componentDidMount()` lifecycle method. Inside it, the `Clock` component asks the browser to set up a timer to call the component's `tick()` method once a second.
+3) जब `Clock` आउटपुट DOM मा सम्मिलित हुन्छ, Reactले `componentDidMount()` लाइफसाइकल विधिलाई कल गर्दछ। यस भित्र `Clock` कम्पोनेन्टले सेकेन्डको एक पटक कम्पोनेन्टको `tick()` विधि कल गर्न ब्राउजरलाई टाइमर सेट अप गर्न सोध्दछ।
 
-4) Every second the browser calls the `tick()` method. Inside it, the `Clock` component schedules a UI update by calling `setState()` with an object containing the current time. Thanks to the `setState()` call, React knows the state has changed, and calls the `render()` method again to learn what should be on the screen. This time, `this.state.date` in the `render()` method will be different, and so the render output will include the updated time. React updates the DOM accordingly.
+4) प्रत्येक सेकेन्ड ब्राउजरले `tick()` विधि कल गर्दछ। यसको भित्र `Clock` कम्पोनेन्टले हालको समय समावेश गरेको objectसँग `setState()` कल गरेर UI अपडेट अनुसूची गर्छ। यो `setState()` कलको कारण Reactलाई थाहा छ state परिवर्तन भएको छ र स्क्रिनमा के हुनुपर्दछ भनेर जान्न उसले फेरि `render()` विधिलाई कल गर्दछ। यस पटक `this.state.date`को `render()` विधि फरक हुनेछ र त्यसैले रेन्डर आउटपुटमा अपडेट गरिएको समय समावेश हुनेछ। React तदनुसार DOM अपडेट गर्दछ।
 
-5) If the `Clock` component is ever removed from the DOM, React calls the `componentWillUnmount()` lifecycle method so the timer is stopped.
+5) यदि `Clock` कम्पोनेन्ट कहिले पनि DOM बाट हटाइन्छ, Reactले `componentWillUnmount()` लाइफसाइकल विधि कल गर्दछ त्यसैले टाइमर रोकिन्छ।
 
-## Using State Correctly {#using-state-correctly}
+## कसरी Stateको सही प्रयोग गर्ने {#using-state-correctly}
 
-There are three things you should know about `setState()`.
+त्यहाँ तीनवटा कुरा छन् जुन तपाईले `setState()`को बारेमा जान्नुपर्दछ।
 
-### Do Not Modify State Directly {#do-not-modify-state-directly}
+### Stateको सिधा परिमार्जन नगर्नुहोस् {#do-not-modify-state-directly}
 
-For example, this will not re-render a component:
+उदाहरण को लागी, यसले कम्पोनेन्ट पुन रेंडर गर्दैन।
 
 ```js
-// Wrong
+// गलत
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+यसको सट्टा `setState()` प्रयोग गर्नुहोस्:
 
 ```js
-// Correct
+// सही
 this.setState({comment: 'Hello'});
 ```
 
@@ -347,7 +346,7 @@ Because `this.props` and `this.state` may be updated asynchronously, you should 
 For example, this code may fail to update the counter:
 
 ```js
-// Wrong
+// गलत
 this.setState({
   counter: this.state.counter + this.props.increment,
 });
@@ -356,7 +355,7 @@ this.setState({
 To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
 
 ```js
-// Correct
+// सही
 this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
@@ -365,7 +364,7 @@ this.setState((state, props) => ({
 We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
 
 ```js
-// Correct
+// सही
 this.setState(function(state, props) {
   return {
     counter: state.counter + props.increment
