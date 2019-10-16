@@ -153,7 +153,7 @@ class Clock extends React.Component {
   }
 ```
 
-Class कम्पोनेंटहरू सँधै base कन्स्ट्रक्टरलाई `props`को साथ कल गर्नुपर्दछ।
+Class कम्पोनेंटहरूले सँधै base कन्स्ट्रक्टरलाई `props`को साथमा कल गर्नुपर्दछ।
 
 ३) `<Clock />` एलिमेन्टबाट `date` prop हटाउनुहोस्:
 
