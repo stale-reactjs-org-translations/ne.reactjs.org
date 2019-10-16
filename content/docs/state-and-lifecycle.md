@@ -33,7 +33,7 @@ setInterval(tick, 1000);
 
 यस सेक्सनमा हामी कसरी `Clock` कम्पोनेन्टलाई पुन: प्रयोज्य र encapsulated बनाउन सिक्ने छौं। यसले आफ्नै टाइमर सेटअप गर्नेछ र प्रत्येक सेकेन्डमा अपडेट हुनेछ।
 
-हामी घडी कस्तो देखिन्छ encapsulate गरेर शुरू गर्न सक्दछौं
+हामी घडी कस्तो देखिन्छ encapsulate गरेर शुरू गर्न सक्दछौं:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -59,7 +59,7 @@ setInterval(tick, 1000);
 
 यद्यपि यसले महत्त्वपूर्ण आवश्यकतालाई वेवास्ता गर्दछ, तथ्य यो छ कि `Clock`ले एक टाइमर सेट अप गर्दछ र UI लाई प्रत्येक सेकेन्ड अपडेट गर्दछ भन्ने तथ्य `Clock`को कार्यान्वयन विवरण हुनुपर्दछ।
 
-आदर्श रूपमा हामी यसलाई एक पटक लेख्न चाहन्छौं र `Clock` आफैंले अपडेट भएको चाहान्छौं।
+आदर्श रूपमा हामी यसलाई एक पटक लेख्न चाहन्छौं र `Clock` आफैंले अपडेट भएको चाहान्छौं:
 
 ```js{2}
 ReactDOM.render(
@@ -107,9 +107,9 @@ class Clock extends React.Component {
 
 ## Classमा लोकल State थप्ने विधि {#adding-local-state-to-a-class}
 
-हामी `date`लाई propsबाट stateमा तीन चरणमा सार्नेछौं।
+हामी `date`लाई propsबाट stateमा तीन चरणमा सार्नेछौं:
 
-1) `render()` मेथडमा `this.props.date`लाई `this.state.date`ले बदल्नुहोस्।
+1) `render()` मेथडमा `this.props.date`लाई `this.state.date`ले बदल्नुहोस्:
 
 ```js{6}
 class Clock extends React.Component {
@@ -124,7 +124,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) [Class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) थप्नुहोस् जसले प्रारम्भिक `this.state` प्रदान गर्दछ।
+2) [Class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) थप्नुहोस् जसले प्रारम्भिक `this.state` प्रदान गर्दछ:
 
 ```js{4}
 class Clock extends React.Component {
@@ -143,7 +143,8 @@ class Clock extends React.Component {
   }
 }
 ```
-हामी कसरी base कन्स्ट्रक्टरमा `props` पास गर्छौं नोट गर्नुहोस्।
+
+हामी कसरी base कन्स्ट्रक्टरमा `props` पास गर्छौं नोट गर्नुहोस्:
 
 ```js{2}
   constructor(props) {
@@ -165,7 +166,7 @@ ReactDOM.render(
 
 हामी पछि टाइमर कोड कम्पोनेन्टमा फिर्ता थप्नेछौं।
 
-परिणाम यस्तो देखिन्छ
+परिणाम यस्तो देखिन्छ:
 
 ```js{2-5,11,18}
 class Clock extends React.Component {
@@ -232,7 +233,7 @@ class Clock extends React.Component {
 
 यी मेथडहरूलाई "लाइफसाइकल मेथड" भनिन्छ।
 
-कम्पोनेन्ट आउटपुट DOMमा रेन्डर गरिसकेपछि `componentDidMount()` मेथड चल्छ। यो टाइमर सेटअप गर्नको लागि राम्रो स्थान हो
+कम्पोनेन्ट आउटपुट DOMमा रेन्डर गरिसकेपछि `componentDidMount()` मेथड चल्छ। यो टाइमर सेटअप गर्नको लागि राम्रो स्थान हो:
 
 ```js{2-5}
   componentDidMount() {
@@ -247,7 +248,7 @@ class Clock extends React.Component {
 
 जबकि `this.prop` आफैं Reactद्वारा सेट अप गरिएको छ र` this.state` को एक विशेष अर्थ छ, यदि तपाईले डेटा प्रवाहमा भाग नलिएको कुरा भण्डारण गर्नुपर्छ भने तपाई classमा म्यानुअल तरीकाले थप फाईलहरू थप्न स्वतन्त्र हुनुहुन्छ (एक टाईमर आईडी जस्तै)।
 
-हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल मेथडमा फाल्नेछौं
+हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल मेथडमा फाल्नेछौं:
 
 ```js{2}
   componentWillUnmount() {
@@ -257,7 +258,7 @@ class Clock extends React.Component {
 
 अन्तमा हामी `tick()` भनिने मेथड निर्माण गर्नेछौं ताकि `Clock` कम्पोनेन्ट प्रत्येक सेकेन्डमा चल्नेछ।
 
-यसले कम्पोनेन्टको लोकल stateमा अपडेटहरू अनुसूची गर्न `this.setState()` प्रयोग गर्दछ
+यसले कम्पोनेन्टको लोकल stateमा अपडेटहरू अनुसूची गर्न `this.setState()` प्रयोग गर्दछ:
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -303,7 +304,7 @@ ReactDOM.render(
 
 अब प्रत्येक सेकेन्डमा घडी टिक्दछ।
 
-चाँडै के हुँदैछ र कुन क्रममा मेथडहरू चल्नेछ भनेर पुन: संक्षेप गरौं
+चाँडै के हुँदैछ र कुन क्रममा मेथडहरू चल्नेछ भनेर पुन: संक्षेप गरौं:
 
 1) जब `<Clock />` लाई `ReactDOM.render()` मा पठाइन्छ, React ले `Clock` कम्पोनेन्टको कन्स्ट्रक्टरलाई कल गर्दछ। किनकि `<Clock />`मा वर्तमान समय प्रदर्शन गर्न आवश्यक छ, यसले `this.state` वर्तमान समय सहितको objectको साथमा आरम्भ गर्छ। हामी पछि यो state अपडेट गर्नेछौं।
 
@@ -321,7 +322,7 @@ ReactDOM.render(
 
 ### Stateको सिधा परिमार्जन नगर्नुहोस् {#do-not-modify-state-directly}
 
-उदाहरण को लागी, यसले कम्पोनेन्ट पुन: रेंडर गर्दैन।
+उदाहरण को लागी, यसले कम्पोनेन्ट पुन: रेंडर गर्दैन:
 
 ```js
 // गलत
@@ -352,7 +353,7 @@ this.setState({
 });
 ```
 
-यसलाई ठीक गर्नका लागि `setState()` को एक दोस्रो फारम प्रयोग गर्नुहोस् जुन एक वस्तुको सट्टा function स्वीकार गर्दछ। त्यो functionले पहिलो आर्गुमेन्टको रूपमा अघिल्लो state प्राप्त गर्दछ र अपडेट लागू भएको बेलाको propsहरू दोस्रो आर्गुमेन्टको रूपमा प्राप्त गर्दछ
+यसलाई ठीक गर्नका लागि `setState()` को एक दोस्रो फारम प्रयोग गर्नुहोस् जुन एक वस्तुको सट्टा function स्वीकार गर्दछ। त्यो functionले पहिलो आर्गुमेन्टको रूपमा अघिल्लो state प्राप्त गर्दछ र अपडेट लागू भएको बेलाको propsहरू दोस्रो आर्गुमेन्टको रूपमा प्राप्त गर्दछ:
 
 ```js
 // सही
@@ -360,7 +361,8 @@ this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
 ```
-हामीले माथि [एर्रो function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) प्रयोग गर्‍यौं, तर यसले regular functions सँग पनि काम गर्दछ
+
+हामीले माथि [एर्रो function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) प्रयोग गर्‍यौं, तर यसले regular functions सँग पनि काम गर्दछ:
 
 ```js
 // सही
@@ -387,7 +389,7 @@ this.setState(function(state, props) {
   }
 ```
 
-त्यसो भए पछि तपाईं तिनीहरूलाई अलग-अलग `setState()` कलहरूको साथ स्वतन्त्र रूपमा अपडेट गर्न सक्नुहुनेछ:
+त्यसो भएपछि तपाईं तिनीहरूलाई अलग-अलग `setState()` कलहरूको साथ स्वतन्त्र रूपमा अपडेट गर्न सक्नुहुनेछ:
 
 ```js{4,10}
   componentDidMount() {
@@ -414,7 +416,6 @@ this.setState(function(state, props) {
 यसैकारण stateलाई प्राय जसो लोकल वा encapsulated भनिन्छ। यसलाई सेट गर्ने यसको स्वामित्व भएको कम्पोनेन्ट बाहेक यो कुनै अन्य कम्पोनेन्टमा पहुँचयोग्य हुँदैन।
 
 एक कम्पोनेन्टले आफ्नो stateलाई propsको रूपमा त्यसको child कम्पोनेन्टहरूमा पास गर्न छनौट गर्न सक्छ:
-A component may choose to pass its state down as props to its child components:
 
 ```js
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
@@ -436,14 +437,11 @@ function FormattedDate(props) {
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-
 यसलाई सामान्यतया "टप​-डाउन" वा "युनिडेरेक्शनल" डाटा प्रवाह भनिन्छ। कुनै पनि state सँधै केही खास कम्पोनेन्टको स्वामित्वमा हुन्छ र stateबाट व्युत्पन्न कुनै पनि डाटा वा UI ले treeमा तिनीहरूभन्दा "मुनि"को कम्पोनेन्टहरूमा मात्र प्रभाव पार्न सक्दछ।
-
 
 यदि तपाईं कम्पोनेन्ट treeलाई झर्ने झरनाको रूपमा कल्पना गर्नुहुन्छ भने प्रत्येक कम्पोनेन्टको state अतिरिक्त पानी स्रोत जस्तै हुन्छ जुन यसलाई एक मनमानी बिन्दुमा मिल्छ तर तल बग्दछ।
 
-
-सबै कम्पोनेन्टहरू साँच्चिकै पृथक छन् देखाउनका लागि हामी एक `App` कम्पोनेन्ट सिर्जना गर्न सक्दछौं जसले `<Clock>` तिनओटा रेन्डर गर्दछ:
+सबै कम्पोनेन्टहरू साँच्चिकै पृथक छन् देखाउनका लागि हामी एक `App` कम्पोनेन्ट सिर्जना गर्न सक्दछौं जसले तिनओटा `<Clock>` रेन्डर गर्दछ:
 
 ```js{4-6}
 function App() {
