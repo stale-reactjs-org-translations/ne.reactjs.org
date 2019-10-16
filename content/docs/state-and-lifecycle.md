@@ -321,29 +321,29 @@ ReactDOM.render(
 
 ### Stateको सिधा परिमार्जन नगर्नुहोस् {#do-not-modify-state-directly}
 
-उदाहरण को लागी, यसले कम्पोनेन्ट पुन रेंडर गर्दैन।
+उदाहरण को लागी, यसले कम्पोनेन्ट पुन: रेंडर गर्दैन।
 
 ```js
 // गलत
 this.state.comment = 'Hello';
 ```
 
-यसको सट्टा `setState()` प्रयोग गर्नुहोस्:
+यसको सट्टा `setState()` प्रयोग गर्नुहोस्
 
 ```js
 // सही
 this.setState({comment: 'Hello'});
 ```
 
-The only place where you can assign `this.state` is the constructor.
+कन्स्ट्रक्टर एक मात्र स्थान जहाँ तपाईं `this.state`मा मान प्रदान गर्न सक्नुहुन्छ।
 
-### State Updates May Be Asynchronous {#state-updates-may-be-asynchronous}
+### State अपडेटहरू एसिन्क्रोनस हुन सक्छ {#state-updates-may-be-asynchronous}
 
-React may batch multiple `setState()` calls into a single update for performance.
+Reactले कार्यसम्पादन क्षमताको लागि धेरै `setState()` कलहरूलाई एक अपडेटमा ब्याच गर्न सक्दछ।
 
-Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+किनकि `this.prop` र `this.state` asynchronously अपडेट हुन सक्छ, तपाईंले अर्को state गणना गर्न उनीहरूको मानहरूमा भर पर्नुहुन्न।
 
-For example, this code may fail to update the counter:
+उदाहरण को लागी, यो कोड काउन्टर अपडेट गर्न असफल हुन सक्छ
 
 ```js
 // गलत
@@ -352,7 +352,7 @@ this.setState({
 });
 ```
 
-To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+यसलाई ठीक गर्नका लागि `setState()` को एक दोस्रो फारम प्रयोग गर्नुहोस् जुन एक वस्तुको सट्टा function स्वीकार गर्दछ। त्यो functionले पहिलो आर्गुमेन्टको रूपमा अघिल्लो state प्राप्त गर्दछ र अपडेट लागू भएको बेलाको propsहरू दोस्रो आर्गुमेन्टको रूपमा प्राप्त गर्दछ
 
 ```js
 // सही
@@ -360,8 +360,7 @@ this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
 ```
-
-We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
+हामीले माथि [एर्रो function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) प्रयोग गर्‍यौं, तर यसले regular functions सँग पनि काम गर्दछ
 
 ```js
 // सही
@@ -372,11 +371,11 @@ this.setState(function(state, props) {
 });
 ```
 
-### State Updates are Merged {#state-updates-are-merged}
+### State अपडेटहरू मर्ज हुन्छन् {#state-updates-are-merged}
 
-When you call `setState()`, React merges the object you provide into the current state.
+जब तपाइँ `setState()` कल गर्नुहुन्छ, Reactले तपाईले प्रदान गर्नु भएको objectलाई हालको stateमा मर्ज गर्दछ।
 
-For example, your state may contain several independent variables:
+उदाहरण को लागी, तपाइँको state मा धेरै स्वतन्त्र variablesहरु हुन सक्छ:
 
 ```js{4,5}
   constructor(props) {
@@ -388,7 +387,7 @@ For example, your state may contain several independent variables:
   }
 ```
 
-Then you can update them independently with separate `setState()` calls:
+त्यसो भए पछि तपाईं तिनीहरूलाई अलग-अलग `setState()` कलहरूको साथ स्वतन्त्र रूपमा अपडेट गर्न सक्नुहुनेछ:
 
 ```js{4,10}
   componentDidMount() {
@@ -406,27 +405,28 @@ Then you can update them independently with separate `setState()` calls:
   }
 ```
 
-The merging is shallow, so `this.setState({comments})` leaves `this.state.posts` intact, but completely replaces `this.state.comments`.
+मर्जिंग सतही हुन्छ, त्यसैले `this.setState({comments})`ले `this.state.posts`लाई अक्षुण्ण छोडिदिन्छ तर पूर्ण रूपमा `this.state.comments`लाई प्रतिस्थापन गर्दछ।
 
-## The Data Flows Down {#the-data-flows-down}
+## डाटा तल बग्दछ {#the-data-flows-down}
 
-Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn't care whether it is defined as a function or a class.
+न त parent न त child कम्पोनेन्टले थाहा पाउँदछन् कि यदि एक निश्चित कम्पोनेन्ट स्टेटफुल वा स्टेटलेस छ, र तिनीहरूले मतलब गर्नु हुँदैन कि यो एक function वा classको रूपमा परिभाषित गरिएको छ।
 
-This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
+यसैकारण stateलाई प्राय जसो लोकल वा encapsulated भनिन्छ। यसलाई सेट गर्ने यसको स्वामित्व भएको कम्पोनेन्ट बाहेक यो कुनै अन्य कम्पोनेन्टमा पहुँचयोग्य हुँदैन।
 
+एक कम्पोनेन्टले आफ्नो stateलाई propsको रूपमा त्यसको child कम्पोनेन्टहरूमा पास गर्न छनौट गर्न सक्छ:
 A component may choose to pass its state down as props to its child components:
 
 ```js
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
-This also works for user-defined components:
+यसले प्रयोगकर्ता-परिभाषित कम्पोनेन्टहरूको लागि पनि काम गर्दछ:
 
 ```js
 <FormattedDate date={this.state.date} />
 ```
 
-The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
+`FormattedDate` कम्पोनेन्टले आफ्नो propsमा `date` प्राप्त गर्दछ र त्यसलाई थाहा हुँदैन कि यो `Clock`को stateबाट आएको थियो कि यो `Clock`को propsबाट आएको थियो वा हातले टाइप गरिएको थियो:
 
 ```js
 function FormattedDate(props) {
@@ -436,11 +436,14 @@ function FormattedDate(props) {
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
 
-If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+यसलाई सामान्यतया "टप​-डाउन" वा "युनिडेरेक्शनल" डाटा प्रवाह भनिन्छ। कुनै पनि state सँधै केही खास कम्पोनेन्टको स्वामित्वमा हुन्छ र stateबाट व्युत्पन्न कुनै पनि डाटा वा UI ले treeमा तिनीहरूभन्दा "मुनि"को कम्पोनेन्टहरूमा मात्र प्रभाव पार्न सक्दछ।
 
-To show that all components are truly isolated, we can create an `App` component that renders three `<Clock>`s:
+
+यदि तपाईं कम्पोनेन्ट treeलाई झर्ने झरनाको रूपमा कल्पना गर्नुहुन्छ भने प्रत्येक कम्पोनेन्टको state अतिरिक्त पानी स्रोत जस्तै हुन्छ जुन यसलाई एक मनमानी बिन्दुमा मिल्छ तर तल बग्दछ।
+
+
+सबै कम्पोनेन्टहरू साँच्चिकै पृथक छन् देखाउनका लागि हामी एक `App` कम्पोनेन्ट सिर्जना गर्न सक्दछौं जसले `<Clock>` तिनओटा रेन्डर गर्दछ:
 
 ```js{4-6}
 function App() {
@@ -461,6 +464,6 @@ ReactDOM.render(
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-Each `Clock` sets up its own timer and updates independently.
+प्रत्येक `Clock` ले आफ्नै टाइमर सेट अप गर्दछ र स्वतन्त्र रूपमा अपडेट हुन्छ।
 
-In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.
+React appsहरूमा, एक कम्पोनेन्ट स्टेटफुल वा स्टेटलेस छ त्यो कम्पोनेन्टको कार्यान्वयन विवरण मानिन्छ जुन समयको साथ परिवर्तन हुन सक्छ। तपाईं स्टेटफुल कम्पोनेन्टहरू भित्र स्टेटलेस कम्पोनेन्टहरू प्रयोग गर्न सक्नुहुनेछ र स्टेटलेस कम्पोनेन्टहरूभित्र स्टेटफुल कम्पोनेन्टहरू प्रयोग गर्न सक्नुहुनेछ।
