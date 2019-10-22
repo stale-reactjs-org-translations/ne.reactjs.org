@@ -201,7 +201,7 @@ ReactDOM.render(
 
 जब `Clock` पहिलो पटक DOM मा रेन्डर हुन्छ, हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं। यसलाई Reactमा "Mounting" भनिन्छ।
 
-हामी पनि [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) चाहन्छौं जब `Clock` द्वारा निर्मित DOM हटाईन्छ। यसलाई Reactमा "Unmounting" भनिन्छ।
+जब `Clock` द्वारा निर्मित DOM हटाईन्छ, हामी [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) पनि चाहन्छौं। यसलाई Reactमा "Unmounting" भनिन्छ।
 
 कम्पोनेंट classमा केहि कोडहरू चलाउन हामी विशेष मेथडहरू घोषणा गर्न सक्दछौं जब एक कम्पोनेंटले माउन्ट र अनमाउन्ट गर्दछ:
 
