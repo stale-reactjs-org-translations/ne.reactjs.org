@@ -199,7 +199,7 @@ ReactDOM.render(
 
 धेरै कम्पोनेंटहरू सहितको Applicationहरूमा कम्पोनेंटहरू नष्ट हुने बित्तिकै कम्पोनेंटहरू द्वारा लिइएको स्रोतहरू खाली गर्न यो धेरै महत्त्वपूर्ण छ।
 
-हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं जब `Clock` पहिलो पटक DOM लाई रेन्डर गरिन्छ। यसलाई Reactमा "Mounting" भनिन्छ।
+जब `Clock` पहिलो पटक DOM मा रेन्डर हुन्छ, हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं। यसलाई Reactमा "Mounting" भनिन्छ।
 
 हामी पनि [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) चाहन्छौं जब `Clock` द्वारा निर्मित DOM हटाईन्छ। यसलाई Reactमा "Unmounting" भनिन्छ।
 
