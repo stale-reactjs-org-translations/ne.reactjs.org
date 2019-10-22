@@ -11,7 +11,6 @@ next: handling-events.html
 यस पृष्ठले React कम्पोनेंटमा state र lifecycle को अवधारणा प्रस्तुत गर्दछ। तपाइँ [यहाँ विस्तृत कम्पोनेंट API सन्दर्भ](/docs/react-component.html) भेट्टाउन सक्नुहुन्छ।
 
 अघिल्लो अंश मध्ये एकबाट [टिक टिक गर्ने घडीको उदाहरण](/docs/rendering-elements.html#updating-the-rendered-element)लाई विचार गर्नुहोस्। [रेन्डरिंग एलिमेन्ट्स](/docs/rendering-elements.html#rendering-an-element-into-the-dom)मा हामीले UI अद्यावधिक गर्न केवल एक मात्र तरीका सिकेका छौं। रेन्डर्ड आउटपुट परिवर्तन गर्न हामी `ReactDOM.render()` कल गर्छौं।
-अघिल्लो अंश मध्ये एकबाट [टिक टिक गर्ने घडीको उदाहरण](/docs/rendering-elements.html#updating-the-rendered-element)लाई विचार गर्नुहोस्। [रेन्डरिंग एलिमेन्ट्स](/docs/rendering-elements.html#rendering-an-element-into-the-dom)मा हामीले UI अद्यावधिक गर्न केवल एक मात्र तरीका सिकेका छौं। रेन्डर्ड आउटपुट परिवर्तन गर्न हामी `ReactDOM.render()` कल गर्छौं।
 
 ```js{8-11}
 function tick() {
@@ -32,9 +31,9 @@ setInterval(tick, 1000);
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-यस सेक्सनमा हामी कसरी `Clock` कम्पोनेंटलाई पुन: प्रयोज्य र encapsulated बनाउन सिक्ने छौं। यसले आफ्नै टाइमर सेटअप गर्नेछ र प्रत्येक सेकेन्डमा अद्यावधिक हुनेछ।
+यस अंशमा हामी `Clock` कम्पोनेंटलाई कसरी पुन: प्रयोज्य बनाउन र encapsulate गर्न सकिन्छ भन्ने बारे सिक्ने छौं। यसले आफ्नै टाइमर सेटअप गर्नेछ र प्रत्येक सेकेन्डमा अद्यावधिक हुनेछ।
 
-हामी घडी कस्तो देखिन्छ encapsulate गरेर शुरू गर्न सक्दछौं:
+सुरुवातमा, हामीले घडी को बाहिरी रुप encapsulate गर्न सक्छौँ:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -73,17 +72,17 @@ ReactDOM.render(
 
 State Props जस्तै छ तर यो निजी हुन्छ​ र पूरै कम्पोनेंटद्वारा नियन्त्रित हुन्छ​।
 
-## एउटा functionलाई classमा रूपान्तरण गर्ने तरिका{#converting-a-function-to-a-class}
+## Functionलाई classमा रूपान्तरण गर्ने तरिका{#converting-a-function-to-a-class}
 
 तपाईं `Clock` जस्तो function कम्पोनेंटलाई classमा पाँच चरणमा रूपान्तरण गर्न सक्नुहुन्छ।
 
-१. [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) सिर्जना गर्नुहोस् उही नामको साथ जसले `React.Component` विस्तार गर्दछ।
+१. [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) सिर्जना गर्नुहोस् साथ जसले `React.Component` विस्तार गर्दछ।
 
 २. यसमा `render()` नाम भएको एक खाली खाली मेथड थप्नुहोस्।
 
 ३. `render()` मेथडमा functionको body सार्नुहोस्।
 
-४. `render()`को bodyमा `props`लाई `this.props`ले बदल्नुहोस्.
+४. `render()` method भित्र `props`लाई `this.props`ले बदल्नुहोस्.
 
 ५. बाँकी खाली functionको घोषणा मेटाउनुहोस्।
 
@@ -104,7 +103,7 @@ class Clock extends React.Component {
 
 `Clock` अब functionको सट्टा classको रूपमा परिभाषित गरिएको छ।
 
-प्रत्येक चोटि अद्यावधिक हुने बित्तिकै `render` मेथड चल्नेछ, तर जबसम्म हामी उहि DOM नोडमा `<Clock />` रेन्डर गर्दछौं `Clock` classको एक मात्र instance पप्रयोग गरिने छ। यसले हामीलाई थप सुविधाहरू जस्तै लोकल state र लाइफसाइकल मेथडहरू प्रयोग गर्न दिन्छ।
+प्रत्येक चोटि अद्यावधिक हुने बित्तिकै `render` मेथड चल्नेछ, तर जबसम्म हामी उहि DOM नोडमा `<Clock />` रेन्डर गर्दछौं `Clock` classको एक मात्र instance प्रयोग गरिने छ। यसले हामीलाई थप सुविधाहरू जस्तै लोकल state र लाइफसाइकल मेथडहरू प्रयोग गर्न दिन्छ।
 
 ## Classमा लोकल State थप्ने विधि {#adding-local-state-to-a-class}
 
@@ -145,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-हामी कसरी base कन्स्ट्रक्टरमा `props` पास गर्छौं नोट गर्नुहोस्:
+हामी कसरी base constructorमा `props` पास गर्छौं नोट गर्नुहोस्:
 
 ```js{2}
   constructor(props) {
@@ -154,7 +153,7 @@ class Clock extends React.Component {
   }
 ```
 
-Class कम्पोनेंटहरूले सँधै base कन्स्ट्रक्टरलाई `props`को साथमा कल गर्नुपर्दछ।
+Class कम्पोनेंटहरूले सँधै base constructorलाई `props`को साथमा कल गर्नुपर्दछ।
 
 ३) `<Clock />` एलिमेन्टबाट `date` prop हटाउनुहोस्:
 
@@ -307,7 +306,7 @@ ReactDOM.render(
 
 चाँडै के हुँदैछ र कुन क्रममा मेथडहरू चल्नेछ भनेर पुन: संक्षेप गरौं:
 
-१) जब `<Clock />` लाई `ReactDOM.render()` मा पठाइन्छ, React ले `Clock` कम्पोनेंटको कन्स्ट्रक्टरलाई कल गर्दछ। किनकि `<Clock />`मा वर्तमान समय प्रदर्शन गर्न आवश्यक छ, यसले `this.state` वर्तमान समय सहितको objectको साथमा आरम्भ गर्छ। हामी पछि यो state अद्यावधिक गर्नेछौं।
+१) जब `<Clock />` लाई `ReactDOM.render()` मा पठाइन्छ, React ले `Clock` कम्पोनेंटको constructorलाई कल गर्दछ। किनकि `<Clock />`मा वर्तमान समय प्रदर्शन गर्न आवश्यक छ, यसले `this.state` वर्तमान समय सहितको objectको साथमा आरम्भ गर्छ। हामी पछि यो state अद्यावधिक गर्नेछौं।
 
 २) React तब `Clock` कम्पोनेंटको `render()` मेथड कल गर्दछ। Reactले स्क्रिनमा प्रदर्शन हुने कुरा यसरी सिक्छ। `Clock`को रेन्डर आउटपुटसँग मेल गर्न Reactले तब DOM अद्यावधिक गर्दछ।
 
@@ -337,7 +336,7 @@ this.state.comment = 'Hello';
 this.setState({comment: 'Hello'});
 ```
 
-कन्स्ट्रक्टर एक मात्र स्थान जहाँ तपाईं `this.state`मा मान प्रदान गर्न सक्नुहुन्छ।
+Constructor एक मात्र स्थान जहाँ तपाईं `this.state`मा मान प्रदान गर्न सक्नुहुन्छ।
 
 ### State अद्यावधिकहरू एसिन्क्रोनस हुन सक्छ {#state-updates-may-be-asynchronous}
 
