@@ -203,7 +203,7 @@ ReactDOM.render(
 
 जब `Clock` द्वारा निर्मित DOM हटाईन्छ, हामी [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) पनि चाहन्छौं। यसलाई Reactमा "Unmounting" भनिन्छ।
 
-कम्पोनेंट classमा केहि कोडहरू चलाउन हामी विशेष मेथडहरू घोषणा गर्न सक्दछौं जब एक कम्पोनेंटले माउन्ट र अनमाउन्ट गर्दछ:
+कम्पोनेंट classमा हामी विशेष मेथडहरू घोषणा गर्न सक्दछौं जसले एक कम्पोनेंट माउन्ट अथवा अनमाउन्ट हुने बेला कुनै कोड चलाउन सक्छ:
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
