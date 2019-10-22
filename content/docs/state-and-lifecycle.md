@@ -10,7 +10,7 @@ next: handling-events.html
 
 यस पृष्ठले React कम्पोनेंटमा state र lifecycle को अवधारणा प्रस्तुत गर्दछ। तपाइँ [यहाँ विस्तृत कम्पोनेंट API सन्दर्भ](/docs/react-component.html) भेट्टाउन सक्नुहुन्छ।
 
-अघिल्लो अंश मध्ये एकबाट [टिक टिक गर्ने घडीको उदाहरण](/docs/rendering-elements.html#updating-the-rendered-element)लाई विचार गर्नुहोस्। [रेन्डरिंग एलिमेन्ट्स](/docs/rendering-elements.html#rendering-an-element-into-the-dom)मा हामीले UI अद्यावधिक गर्न केवल एक मात्र तरीका सिकेका छौं। रेन्डर्ड आउटपुट परिवर्तन गर्न हामी `ReactDOM.render()` कल गर्छौं।
+अघिल्लो अंश मध्ये एकबाट [टिक टिक गर्ने घडीको उदाहरण](/docs/rendering-elements.html#updating-the-rendered-element)लाई विचार गर्नुहोस्। [Elements render](/docs/rendering-elements.html#rendering-an-element-into-the-dom)गर्दा हामीले UI अद्यावधिक गर्न केवल एक मात्र तरीका सिकेका छौं। Render भएको आउटपुट परिवर्तन गर्न हामी `ReactDOM.render()` कल गर्छौं।
 
 ```js{8-11}
 function tick() {
@@ -103,7 +103,7 @@ class Clock extends React.Component {
 
 `Clock` अब functionको सट्टा classको रूपमा परिभाषित गरिएको छ।
 
-प्रत्येक चोटि अद्यावधिक हुने बित्तिकै `render` method चल्नेछ, तर जबसम्म हामी उहि DOM नोडमा `<Clock />` रेन्डर गर्दछौं `Clock` classको एक मात्र instance प्रयोग गरिने छ। यसले हामीलाई थप सुविधाहरू जस्तै स्थानिय state र लाइफसाइकल methodहरू प्रयोग गर्न दिन्छ।
+प्रत्येक चोटि अद्यावधिक हुने बित्तिकै `render` method चल्नेछ, तर जबसम्म हामी उहि DOM नोडमा `<Clock />` render गर्दछौं `Clock` classको एक मात्र instance प्रयोग गरिने छ। यसले हामीलाई थप सुविधाहरू जस्तै स्थानिय state र लाइफसाइकल methodहरू प्रयोग गर्न दिन्छ।
 
 ## Classमा स्थानिय State थप्ने तरिका {#adding-local-state-to-a-class}
 
@@ -199,7 +199,7 @@ ReactDOM.render(
 
 धेरै कम्पोनेंटहरू सहितको Applicationहरूमा कम्पोनेंटहरू नष्ट हुने बित्तिकै कम्पोनेंटहरू द्वारा लिइएको resourcesहरू खाली गर्न यो धेरै महत्त्वपूर्ण छ।
 
-जब `Clock` पहिलो पटक DOM मा रेन्डर हुन्छ, हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं। यसलाई Reactमा "Mounting" भनिन्छ।
+जब `Clock` पहिलो पटक DOM मा render हुन्छ, हामी एक [टाइमर सेट अप गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) चाहन्छौं। यसलाई Reactमा "Mounting" भनिन्छ।
 
 जब `Clock` द्वारा निर्मित DOM हटाईन्छ, हामी [टाइमर खाली गर्न](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) पनि चाहन्छौं। यसलाई Reactमा "Unmounting" भनिन्छ।
 
@@ -233,7 +233,7 @@ class Clock extends React.Component {
 
 यी methodहरूलाई "लाइफसाइकल method" भनिन्छ।
 
-कम्पोनेंट आउटपुट DOMमा रेन्डर गरिसकेपछि `componentDidMount()` method चल्छ। यो टाइमर सेटअप गर्नको लागि राम्रो स्थान हो:
+कम्पोनेंट आउटपुट DOMमा render गरिसकेपछि `componentDidMount()` method चल्छ। यो टाइमर सेटअप गर्नको लागि राम्रो स्थान हो:
 
 ```js{2-5}
   componentDidMount() {
@@ -308,11 +308,11 @@ ReactDOM.render(
 
 १) जब `<Clock />` लाई `ReactDOM.render()` मा पठाइन्छ, React ले `Clock` कम्पोनेंटको constructorलाई कल गर्दछ। किनकि `<Clock />`मा वर्तमान समय प्रदर्शन गर्न आवश्यक छ, यसले `this.state` वर्तमान समय सहितको objectको साथमा आरम्भ गर्छ। हामी पछि यो state अद्यावधिक गर्नेछौं।
 
-२) React तब `Clock` कम्पोनेंटको `render()` method कल गर्दछ। Reactले स्क्रिनमा प्रदर्शन हुने कुरा यसरी सिक्छ। `Clock`को रेन्डर आउटपुटसँग मेल गर्न Reactले तब DOM अद्यावधिक गर्दछ।
+२) React तब `Clock` कम्पोनेंटको `render()` method कल गर्दछ। Reactले स्क्रिनमा प्रदर्शन हुने कुरा यसरी सिक्छ। `Clock`को render भएको आउटपुटसँग मेल गर्न Reactले तब DOM अद्यावधिक गर्दछ।
 
 ३) जब `Clock` आउटपुट DOM मा सम्मिलित हुन्छ, Reactले `componentDidMount()` लाइफसाइकल लाई कल गर्दछ। यस भित्र `Clock` कम्पोनेंटले सेकेन्डको एक पटक कम्पोनेंटको `tick()` method कल गर्न ब्राउजरलाई टाइमर सेट अप गर्न सोध्दछ।
 
-४) प्रत्येक सेकेन्ड ब्राउजरले `tick()` method कल गर्दछ। यसको भित्र `Clock` कम्पोनेंटले हालको समय समावेश गरेको objectसँग `setState()` कल गरेर UI अद्यावधिक अनुसूची गर्छ। यो `setState()` कलको कारण Reactलाई थाहा छ state परिवर्तन भएको छ र स्क्रिनमा के हुनुपर्दछ भनेर जान्न उसले फेरि `render()` methodलाई कल गर्दछ। यस पटक `render()` methodमा`this.state.date` फरक हुनेछ र त्यसैले रेन्डर गरिएको आउटपुटमा अद्यावधिक भएको समय समावेश हुनेछ। React तदनुसार DOM अद्यावधिक गर्दछ।
+४) प्रत्येक सेकेन्ड ब्राउजरले `tick()` method कल गर्दछ। यसको भित्र `Clock` कम्पोनेंटले हालको समय समावेश गरेको objectसँग `setState()` कल गरेर UI अद्यावधिक अनुसूची गर्छ। यो `setState()` कलको कारण Reactलाई थाहा छ state परिवर्तन भएको छ र स्क्रिनमा के हुनुपर्दछ भनेर जान्न उसले फेरि `render()` methodलाई कल गर्दछ। यस पटक `render()` methodमा`this.state.date` फरक हुनेछ र त्यसैले render गरिएको आउटपुटमा अद्यावधिक भएको समय समावेश हुनेछ। React तदनुसार DOM अद्यावधिक गर्दछ।
 
 ५) यदि `Clock` कम्पोनेंट कहिले पनि DOM बाट हटाइन्छ, Reactले `componentWillUnmount()` लाइफसाइकल method कल गर्दछ त्यसैले टाइमर रोकिन्छ।
 
@@ -322,7 +322,7 @@ ReactDOM.render(
 
 ### Stateको सिधा परिमार्जन नगर्नुहोस् {#do-not-modify-state-directly}
 
-उदाहरण को लागी, यसले कम्पोनेंट पुन: रेंडर गर्दैन:
+उदाहरण को लागी, यसले कम्पोनेंट पुन: render गर्दैन:
 
 ```js
 // गलत
@@ -441,7 +441,7 @@ function FormattedDate(props) {
 
 यदि तपाईं कम्पोनेंट treeलाई झर्ने झरनाको रूपमा कल्पना गर्नुहुन्छ भने प्रत्येक कम्पोनेंटको state अतिरिक्त पानी स्रोत जस्तै हुन्छ जुन यसलाई एक मनमानी बिन्दुमा मिल्छ तर तल बग्दछ।
 
-सबै कम्पोनेंटहरू साँच्चिकै पृथक छन् देखाउनका लागि हामी एक `App` कम्पोनेंट सिर्जना गर्न सक्दछौं जसले तिनओटा `<Clock>` रेन्डर गर्दछ:
+सबै कम्पोनेंटहरू साँच्चिकै पृथक छन् देखाउनका लागि हामी एक `App` कम्पोनेंट सिर्जना गर्न सक्दछौं जसले तिनओटा `<Clock>` render गर्दछ:
 
 ```js{4-6}
 function App() {
