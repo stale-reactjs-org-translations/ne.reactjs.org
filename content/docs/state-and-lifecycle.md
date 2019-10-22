@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-हामी कसरी base constructorमा `props` पास गर्छौं नोट गर्नुहोस्:
+हामी कसरी base constructorमा `props` पास गर्छौं, टिपोट गर्नुहोस्:
 
 ```js{2}
   constructor(props) {
@@ -193,7 +193,7 @@ ReactDOM.render(
 
 [**CodePen मा प्रयास गर्नुहोस्**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-अर्को, हामी `Clock` लाई यसको आफ्नै टाइमर सेटअप गर्नेछौं र प्रत्येक सेकेन्डमा आफैं अद्यावधिक गर्ने बनाउनेछौं।
+अब, हामीले `Clock` लाई आफ्नै टाइमर सेटअप गर्ने योग्य र प्रत्येक सेकेन्डमा आफैं अद्यावधिक हुने बनाउनेछौं।
 
 ## Classमा लाइफसाइकल method थप्ने विधि {#adding-lifecycle-methods-to-a-class}
 
@@ -248,11 +248,7 @@ class Clock extends React.Component {
 
 जबकि `this.prop` आफैं Reactद्वारा सेट अप गरिएको छ र` this.state` को एक विशेष अर्थ छ, यदि तपाईले डेटा प्रवाहमा भाग नलिएको कुरा भण्डारण गर्नुपर्छ भने तपाई classमा म्यानुअल तरीकाले थप फाईलहरू थप्न स्वतन्त्र हुनुहुन्छ (एक टाईमर आईडी जस्तै)।
 
-<<<<<<< Updated upstream
-हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल मेथडमा नस्ट गर्नेछौ:
-=======
-हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल methodमा फाल्नेछौं:
->>>>>>> Stashed changes
+हामी टाइमरलाई `componentWillUnmount()` लाइफसाइकल method नस्ट गर्नेछौ:
 
 ```js{2}
   componentWillUnmount() {
@@ -316,7 +312,7 @@ ReactDOM.render(
 
 ३) जब `Clock` आउटपुट DOM मा सम्मिलित हुन्छ, Reactले `componentDidMount()` लाइफसाइकल विधिलाई कल गर्दछ। यस भित्र `Clock` कम्पोनेंटले सेकेन्डको एक पटक कम्पोनेंटको `tick()` विधि कल गर्न ब्राउजरलाई टाइमर सेट अप गर्न सोध्दछ।
 
-४) प्रत्येक सेकेन्ड ब्राउजरले `tick()` विधि कल गर्दछ। यसको भित्र `Clock` कम्पोनेंटले हालको समय समावेश गरेको objectसँग `setState()` कल गरेर UI अद्यावधिक अनुसूची गर्छ। यो `setState()` कलको कारण Reactलाई थाहा छ state परिवर्तन भएको छ र स्क्रिनमा के हुनुपर्दछ भनेर जान्न उसले फेरि `render()` विधिलाई कल गर्दछ। यस पटक `this.state.date`को `render()` विधि फरक हुनेछ र त्यसैले रेन्डर आउटपुटमा अद्यावधिक गरिएको समय समावेश हुनेछ। React तदनुसार DOM अद्यावधिक गर्दछ।
+४) प्रत्येक सेकेन्ड ब्राउजरले `tick()` विधि कल गर्दछ। यसको भित्र `Clock` कम्पोनेंटले हालको समय समावेश गरेको objectसँग `setState()` कल गरेर UI अद्यावधिक अनुसूची गर्छ। यो `setState()` कलको कारण Reactलाई थाहा छ state परिवर्तन भएको छ र स्क्रिनमा के हुनुपर्दछ भनेर जान्न उसले फेरि `render()` विधिलाई कल गर्दछ। यस पटक `render()` methodमा`this.state.date` फरक हुनेछ र त्यसैले रेन्डर गरिएको आउटपुटमा अद्यावधिक भएको समय समावेश हुनेछ। React तदनुसार DOM अद्यावधिक गर्दछ।
 
 ५) यदि `Clock` कम्पोनेंट कहिले पनि DOM बाट हटाइन्छ, Reactले `componentWillUnmount()` लाइफसाइकल विधि कल गर्दछ त्यसैले टाइमर रोकिन्छ।
 
@@ -342,11 +338,11 @@ this.setState({comment: 'Hello'});
 
 Constructor एक मात्र स्थान जहाँ तपाईं `this.state`मा मान प्रदान गर्न सक्नुहुन्छ।
 
-### State अद्यावधिकहरू एसिन्क्रोनस हुन सक्छ {#state-updates-may-be-asynchronous}
+### State अद्यावधिकहरू Asynchronous हुन सक्छ {#state-updates-may-be-asynchronous}
 
 Reactले कार्यसम्पादन क्षमताको लागि धेरै `setState()` कलहरूलाई एक अद्यावधिकमा ब्याच गर्न सक्दछ।
 
-किनकि `this.prop` र `this.state` asynchronously अद्यावधिक हुन सक्छ, तपाईंले अर्को state गणना गर्न उनीहरूको मानहरूमा भर पर्नुहुन्न।
+किनकि `this.prop` र `this.state` asynchronous तरिकाले अद्यावधिक हुन सक्छ, तपाईंले अर्को state गणना गर्न उनीहरूको मानहरूमा भर पर्नुहुन्न।
 
 उदाहरण को लागी, यो कोड काउन्टर अद्यावधिक गर्न असफल हुन सक्छ
 
@@ -357,7 +353,7 @@ this.setState({
 });
 ```
 
-यसलाई ठीक गर्नका लागि `setState()` को एक दोस्रो फारम प्रयोग गर्नुहोस् जुन एक वस्तुको सट्टा function स्वीकार गर्दछ। त्यो functionले पहिलो आर्गुमेन्टको रूपमा अघिल्लो state प्राप्त गर्दछ र अद्यावधिक लागू भएको बेलाको propsहरू दोस्रो आर्गुमेन्टको रूपमा प्राप्त गर्दछ:
+यसलाई ठीक गर्नका लागि `setState()` को एक दोस्रो रुप प्रयोग गर्नुहोस् जुन एक objectको सट्टा function स्वीकार गर्दछ। त्यो functionले पहिलो आर्गुमेन्टको रूपमा अघिल्लो state प्राप्त गर्दछ र अद्यावधिक लागू भएको बेलाको propsहरू दोस्रो आर्गुमेन्टको रूपमा प्राप्त गर्दछ:
 
 ```js
 // सही
@@ -366,7 +362,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-हामीले माथि [एर्रो function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) प्रयोग गर्‍यौं, तर यसले regular functions सँग पनि काम गर्दछ:
+हामीले माथि [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) प्रयोग गर्‍यौं, तर यसले regular functions सँग पनि काम गर्दछ:
 
 ```js
 // सही
