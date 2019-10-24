@@ -117,11 +117,7 @@ import './index.css';
 
 ### गाह्रो पर्यो, मलाई सहयोग गर्नुहोस! {#help-im-stuck}
 
-<<<<<<< HEAD
 यदि तपाईं अड्कनुभयो भने, [समुदाय समर्थन स्रोतहरू](/community/support.html) हेर्नुहोस्। विशेष गरी, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) मद्दत छिटो प्राप्त गर्न एक राम्रो तरिका हो। यदि तपाईंले जवाफ प्राप्त गर्नुभएन भने, वा तपाईं अड्कनु भएको छ भने, कृपया एउटा issue  फाइल गर्नुहोस्, र हामी तपाईंलाई मद्दत गर्नेछौं।
-=======
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## अवलोकन {#overview}
 
@@ -169,13 +165,13 @@ return React.createElement('div', {className: 'shopping-list'},
 
 यदि तपाइँ उत्सुक हुनुहुन्छ भने, `createElement ()` को बारेमा थप विवरण [API reference](/docs/react-api.html#createelement) मा वर्णन गरिएको छ, तर हामी यसलाई यो ट्यूटोरियलमा प्रयोग गर्दैनौं। बरु, हामी JSX प्रयोग गरिरहनेछौं।
 
-JSX ले Javascript लाई शक्तिशाली बनाउछ। तपाईले कुनै Javascript  expressions  मझौला कोस्टभित्र रहने JSX भित्र राख्न सक्नुहुन्छ। प्रत्येक React element Javascript object  हो जुन तपाईं variable मा राख्न सक्नुहुन्छ वा तपाईंको program वरिपरि राख्न सक्नुहुन्छ।
+JSX ले Javascript लाई शक्तिशाली बनाउछ। तपाईले कुनै Javascript expressions मझौला कोस्टभित्र रहने JSX भित्र राख्न सक्नुहुन्छ। प्रत्येक React element Javascript object  हो जुन तपाईं variable मा राख्न सक्नुहुन्छ वा तपाईंको program वरिपरि राख्न सक्नुहुन्छ।
 
 माथिको `ShoppingList` component ले निर्मित DOM components जस्तै `<div />` र `<li />` लाई render गर्दछ। तर तपाईले आफ्नै React components पनि रचना गरेर render गर्न सक्नुहुन्छ। उदाहरणको लागि, हामी अब सबै shopping list लाई `<ShoppingList  />` लेखेर जनाउन सक्छौ। प्रत्येक React component गुप्त छ र छुट्टै पनि चलाउन मिल्छ; यसले तपाईंलाई साधारण component हरु बाट जटिल युजर इन्टरफेसहरु निर्माण गर्न दिन्छ।
 
 ## सुरुवातको कोड निरीक्षण गर्दा {#inspecting-the-starter-code}
 
-यदि तपाईं ट्यूटोरियल **तपाईको ब्राउजरमा** मा काम गर्न जाँदै हुनुहुन्छ भने  यो कोड नयाँ ट्याबमा खोल्नुहोस्: **[सुरुवाती कोड] (https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )**। यदि तपाइँ ट्यूटोरियलमा **locally** काम गर्न जाँदै हुनुहुन्छ भने, यसको सट्टामा आफ्नो project फोल्डरमा `src/index.js` खोल्नुहोस (तपाईंले यो फाइल सेटअप [setup](#setup-option-2-local-development-environment) को बेलामा हेरी सक्नु भएको छ)।
+यदि तपाईं ट्यूटोरियल **तपाईको ब्राउजरमा** मा काम गर्न जाँदै हुनुहुन्छ भने  यो कोड नयाँ ट्याबमा खोल्नुहोस्: **[सुरुवाती कोड](https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )**। यदि तपाइँ ट्यूटोरियलमा **locally** काम गर्न जाँदै हुनुहुन्छ भने, यसको सट्टामा आफ्नो project फोल्डरमा `src/index.js` खोल्नुहोस (तपाईंले यो फाइल सेटअप [setup](#setup-option-2-local-development-environment) को बेलामा हेरी सक्नु भएको छ)।
 
 यो सुरुवाती कोड हामीले निर्माण गर्न लागेको खेलको आधार हो। हामीले CSS स्टाइल तपाइलाई प्रदान गर्यौं ताकि तपाईलाई  tic-tac-toe खेलको React र programming सिक्नको लागि ध्यान केन्द्रित गर्न आवश्यक छ।
 
@@ -325,7 +321,7 @@ class Square extends React.Component {
 
 Square को `render` मेथोड मा `onClick` handler बाट `this.setState` कल गरेर, जब `<button>` क्लिक हुन्छ, हामीले React मा त्यो Square लाई पुन:render गर्न भनेका हौ। अद्यावधिक पछि, Square को  `this.state.value` को मान `'X'` हुनेछ, त्यसैले हामी गेम बोर्डमा `X` देख्नेछौं। यदि तपाइँ कुनै पनि Square मा क्लिक गर्नुहुन्छ भने, `X` देख्नु पर्दछ।
 
-जब तपाइँ एक component मा  `setState` कल गर्नुहुन्छ, React ले स्वचालित रूपमा यसको भित्रको बच्चा component हरु  पुनः अपडेट पनि गर्छ।
+जब तपाइँ एक component मा `setState` कल गर्नुहुन्छ, React ले स्वचालित रूपमा यसको भित्रको बच्चा component हरु  पुनः अपडेट पनि गर्छ।
 
 **[यो बिन्दुमा पूर्ण कोड हेर्नुहोस्](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
@@ -337,12 +333,7 @@ Square को `render` मेथोड मा `onClick` handler बाट `this.
 
 React DevTools ले तपाईंलाई props र तपाईंको React components को  अवस्था जाँच गर्न दिन्छ।
 
-
-<<<<<<< HEAD
-React  DevTools स्थापना पछि, तपाईं पृष्ठको कुनैपनि भागमा दायाँ क्लिक गर्न सक्नुहुन्छ, विकासकर्ता उपकरण खोल्नका लागि "inspect" मा क्लिक गर्नुहोस्, र React  ट्याब अन्तिम ट्याबको रूपमा दायाँतिर देखा पर्नेछ।
-=======
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
->>>>>>> 6dcb963479953586f462ce31fddf35158c0598a0
+React  DevTools स्थापना पछि, तपाईं पृष्ठको कुनैपनि भागमा दायाँ क्लिक गर्न सक्नुहुन्छ, विकासकर्ता उपकरण खोल्नका लागि "inspect" मा क्लिक गर्नुहोस्, र React ट्याबहरू ("⚛️ Components" र "⚛️ Profiler") अन्तिम ट्याबको रूपमा दायाँतिर देखा पर्नेछ। Component रूख निरीक्षण गर्न "⚛️ Components" क्लिक गर्नुहोस्।.
 
 **तथापि, नोट CodePen सँग काम गर्न केही थप चरणहरू छन्:**
 
