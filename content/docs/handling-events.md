@@ -8,12 +8,12 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
+React element हरुबाट event हरु handling गर्ने तरिका DOM element हरुमा event हरु handling गर्नेसँग मिल्दोजुल्दो छ । त्यहाँ केहि syntactic भिन्नताहरू छन्:
 
-* React events are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* React event हरू lowercase को सट्टा, camelCase प्रयोग गरेर नामाकरण गरिन्छ।
+* JSX बाट तपाई function लाई string को रुपमा प्रयोग नगरेर event handler को रुपमा पास गर्नुहुन्छ।
 
-For example, the HTML:
+उदाहरण को लागी, HTML:
 
 ```html
 <button onclick="activateLasers()">
@@ -21,7 +21,7 @@ For example, the HTML:
 </button>
 ```
 
-is slightly different in React:
+React मा थोरै फरक छ:
 
 ```js{1}
 <button onClick={activateLasers}>
@@ -29,7 +29,7 @@ is slightly different in React:
 </button>
 ```
 
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+अर्को भिन्नता यो हो कि तपाईले React मा पूर्वनिर्धारित व्यवहार रोक्न `false` फिर्ता गर्न सक्नुहुन्न। तपाईंले `preventDefault` लाई स्पष्ट रूपमा कल गर्नुपर्दछ। उदाहरणको लागि, सादा HTML को साथ, नयाँ पृष्ठ खोल्ने पूर्वनिर्धारित लिंक लाई रोक्नको लागि, तपाईं लेख्न सक्नुहुन्छ:
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -37,7 +37,7 @@ Another difference is that you cannot return `false` to prevent default behavior
 </a>
 ```
 
-In React, this could instead be:
+React मा, यसको सट्टामा यो हुन सक्छ:
 
 ```js{2-5,8}
 function ActionLink() {
