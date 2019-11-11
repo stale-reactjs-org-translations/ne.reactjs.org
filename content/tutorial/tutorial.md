@@ -194,6 +194,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+}
 ```
 
 value prop देखाउनको लागि Square को `render` method को `{/* TODO */}` लाई हटाएर `{this.props.value}` ले परिबर्तन गर्नुहोस। 
