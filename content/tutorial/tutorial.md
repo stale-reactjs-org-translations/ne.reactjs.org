@@ -37,7 +37,11 @@ redirect_from:
 
 हामी यहाँ के बनाउन गइरहेको छौ तेस्को **[अन्तिम परिणाम](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)** तपाई देख्न सक्नु हुन्छ। यदि तपाई कोड बुझ्न सक्नु हुन्न भने, अथवा यदि तपाई कोड को स्य्न्तक्ष संग अपरचित हुनु हुन्छ भने पनि न आतिनुहोस! यो ट्युटोरियलको अन्तिम लक्ष्य भनेको तपाइलाई React र यसको syntax बुझ्न मदत पुराउनु हो।
 
+<<<<<<< HEAD
 यो ट्यूटोरियल सुरु गर्नु भन्दा पहिले तपाई tic-tac-toe खेल खेलेर हेर्न हामी सुझाब दिन्छौ। तपाइले विचार गर्न सक्नु हुन्छ खेलको सुविधाहरु मध्ये एउटा चाही, खेल बोर्डको दायाँमा अंकहरुको सुची छ। यो सुचीले तपाइले  खेलमा चालेको  पहिलेको  चालहरुको  रेकर्ड दिन्छ, र यो सुची खेलको प्रगतिसंगै अद्यावधिक हुन्छ। 
+=======
+We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 तपाईं एक पटक  परिचित भएपछि  tic-tac-toe खेल बन्द गर्न सक्नुहुन्छ। हामी यो ट्यूटोरियलमा एक सरल template बाट सुरू गर्नेछौ। हाम्रो अर्को चरण तपाईंलाई सेटअप गर्नु हो ताकि तपाईं खेल निर्माण गर्न सक्नुहुनेछ।
 
