@@ -292,7 +292,11 @@ class Square extends React.Component {
 
 >नोट
 >
+<<<<<<< HEAD
 >[JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)हरुमा, तपाइले जहिले पनि `super` कल गर्नु पर्छ जब तपाइले subclass मा constructor परिभाषित गर्नु हुन्छ। सबै React component classes संग भएको `constructor` मा `super(props)` कल बाट सुरुवात हुन्छ। 
+=======
+>In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start with a `super(props)` call.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 अब हामी क्लिक गरेको बेलाको state को प्रदर्शन गर्न Square को `render` मेथोड़ परिबर्तन गर्छौ:
 

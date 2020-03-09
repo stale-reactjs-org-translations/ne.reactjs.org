@@ -34,7 +34,11 @@ const element = <h1>Hello, world</h1>;
 
 प्राय: React मात्र प्रयोग गरी निर्मित Application हरुमा  एउटा root DOM node हुन्छ। यदि तपाइँ एक अवस्थित app मा React प्रयोग गर्नु भएको छ भने, तपाईंलाई जस्तो मनपर्छ तेस्तो धेरै अलग root DOM node हरू हुन सक्दछ।
 
+<<<<<<< HEAD
 root DOM node मा एक react element render गर्न, दुवै लाई  `ReactDOM.render()` मा पास गर्नुहोस:
+=======
+To render a React element into a root DOM node, pass both to [`ReactDOM.render()`](/docs/react-dom.html#render):
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +50,11 @@ root DOM node मा एक react element render गर्न, दुवै ल�
 
 React elements [immutable](https://en.wikipedia.org/wiki/Immutable_object) हुन्छन। एकपटक तपाईंले एक element बनाएपछि, तपाईं एस्को child वा attributes परिवर्तन गर्न सक्नुहुन्न। चलचित्रमा हुने एक एकल फ्रेम जस्तै एक element हो: यो निश्चित समयमा UI को प्रतिनिधित्व गर्दछ।
 
+<<<<<<< HEAD
 अहिले सम्मको ज्ञान बाट यो कुरा थाहा पाउछौ कि, UI अद्यावधिक गर्न को लागि एकमात्र तरीका एक नयाँ element बनाउनु हो, र यसलाई `ReactDOM.render ()` मा पठाउनु पर्छ।
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to [`ReactDOM.render()`](/docs/react-dom.html#render).
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 यो चालु घडीको उदाहरणलाई विचार गर्नुहोस्:
 
@@ -54,11 +62,19 @@ React elements [immutable](https://en.wikipedia.org/wiki/Immutable_object) ह�
 
 [कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/update-rendered-element)
 
+<<<<<<< HEAD
 यसले `ReactDOM.render()` लाई हरेक सेकेन्डमा [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback बाट कल गर्दछ।
+=======
+It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 >**नोट:**
 >
+<<<<<<< HEAD
 >धेरैजसो, अधिकांश React app हरुले `ReactDOM.render()` एक पटक मात्र कल गर्छ।अर्को खण्डमा हामी यो कोडले [stateful components](/docs/state-and-lifecycle.html) मा कसरी encapsulated हुन्छ भन्ने सिक्छौं।
+=======
+>In practice, most React apps only call [`ReactDOM.render()`](/docs/react-dom.html#render) once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 >
 >हामी तपाईलाई विषयहरू नछोड्न सिफारिस गर्दछौं किनकि तिनीहरू एकअर्कामा बनेको हुन्छन।
 
@@ -76,4 +92,8 @@ React DOM ले element र यसको बच्चाहरूलाई अ�
 Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
 >>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
+<<<<<<< HEAD
 हाम्रो अनुभवमा, UI लाई केहि समयपछि कसरी परिबर्तन गर्ने सोच्नुको सट्टा UI लाई अहिले कसरि देखाउने भनेर विचार गर्ने हो भने सबै bug हरु हट्छ।
+=======
+In our experience, thinking about how the UI should look at any given moment, rather than how to change it over time, eliminates a whole class of bugs.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
