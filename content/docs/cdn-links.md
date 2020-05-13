@@ -3,7 +3,7 @@ id: cdn-links
 title: CDN लिङ्कहरू
 permalink: docs/cdn-links.html
 prev: create-a-new-react-app.html
-next: hello-world.html
+next: release-channels.html
 ---
 
 दुबै React र ReactDOM हरु CDN मा उपलब्ध छन्।
