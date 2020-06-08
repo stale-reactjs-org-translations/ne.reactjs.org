@@ -1209,7 +1209,11 @@ class Game extends React.Component {
 
 राम्रो काम! हामी आशा गर्छौं कि तपाई अब React ले कसरी काम गर्दछ भनेर उचित ज्ञान पाउनुभयो।
 
+<<<<<<< HEAD
 अन्तिम परिणाम यहाँ जाँच गर्नुहोस्: **[अन्तिम परिणाम](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+=======
+Nice work! We hope you now feel like you have a decent grasp of how React works.
+>>>>>>> c9b990070fc35d31b56957263e1ea9fe2fe67b40
 
 
 यदि तपाईंसँग अतिरिक्त समय छ वा तपाईंको नयाँ React कुशलताहरू अभ्यास गर्न चाहनुहुन्छ भने, यहाँ केहि सुझावहरू छन् जुन तपाइँले tic-tac-toe खेलमा सुधार गर्न सक्नुहुनेछ जुन कठिनाइ बढ्दो रुपमा क्रमबद्ध गरिएको छ:

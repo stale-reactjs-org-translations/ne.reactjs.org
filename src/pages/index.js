@@ -55,7 +55,11 @@ class Home extends Component {
           canonicalUrl={createCanonicalUrl('/')}
  
         />
-        <div css={{width: '100%'}}>
+        <div
+          css={{
+            width: '100%',
+            marginTop: 60, // BLM
+          }}>
           <header
             css={{
               backgroundColor: colors.dark,
