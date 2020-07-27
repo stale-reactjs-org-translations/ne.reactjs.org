@@ -568,7 +568,13 @@ Immutable object हरूमा भएको परिवर्तन पत्
 
 Immutability को मुख्य लाभ यो हो कि यसले तपाईंलाई React मा _pure components_ निर्माण गर्न मद्दत गर्दछ। Immutable data सजिलैसँग निर्धारण गर्न  सकिन्छ यदि परिवर्तनहरू गरिएका छन् जसले component re-rendering आवश्यक भएको निर्धारण गर्न मद्दत गर्दछ।
 
+<<<<<<< HEAD
 तपाईँले `shouldComponentUpdate()` र *pure components* निर्माण गर्ने बारेमा  [Optimizing Performance](/docs/optimizing-performance.html#examples) पढेर धेरै सिक्न सक्नु हुन्छ। 
+=======
+The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
+
+You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 ### Function Components {#function-components}
 
