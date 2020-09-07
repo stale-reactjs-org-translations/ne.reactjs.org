@@ -19,14 +19,14 @@ const Acknowlegements = ({data, location}) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>Acknowledgements</Header>
+          <Header>आभार</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/acknowledgements.html`}
             title="React - Acknowledgements"
           />
 
           <div css={sharedStyles.markdown}>
-            <p>We'd like to thank all of our contributors:</p>
+            <p>हामी हाम्रा सबै योगदानकर्ताहरूलाई धन्यवाद दिन चाहन्छौं:</p>
 
             <ul
               css={{

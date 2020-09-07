@@ -1,16 +1,16 @@
 - title: Installation
   items:
     - id: getting-started
-      title: Getting Started
+      title: सुरु गर्दै
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: React लाई पेज म थप्नुस 
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: नयाँ React App सिर्जना 
     - id: cdn-links
-      title: CDN Links
+      title: CDN लिंकहरू
     - id: release-channels
       title: Release Channels
-- title: Main Concepts
+- title: मुख्य अवधारणा
   isOrdered: true
   items:
     - id: hello-world
