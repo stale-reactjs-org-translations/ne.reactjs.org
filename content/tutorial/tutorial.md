@@ -535,7 +535,11 @@ Square component हरूले अब state लाई सुरक्षित
 
 ### किन Immutability महत्त्वपूर्ण छ {#why-immutability-is-important}
 
+<<<<<<< HEAD
 अघिल्लो कोड उदाहरणमा, हामीले सुझाव दिएको छ कि तपाइँ  array लाई  परिमार्जन गर्नको लागि अवस्थित array परिबर्तन गर्नुको सट्टा  `.slice()` अपरेटर को उपयोग गरेर `squares` array को एक प्रतिलिपि निर्माण गर्न सक्नु हुन्छ। हामी अहिले immutability को बारेमा र किन immutability सिक्न महत्त्वपूर्ण छ भन्ने बारेमा छलफल गर्नेछौं।
+=======
+In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to copy instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 446345cfba91b62546f46f88fad893937a826cdc
 
 सामान्यतया data परिवर्तन गर्न दुईवटा दृष्टिकोणहरू छन्। पहिलो दृष्टिकोण data को मानहरू परिवर्तन गरेर data *mutate* गर्नु हो। दोस्रो दृष्टिकोणले नयाँ प्रतिलिपिको साथ data लाई इच्छित रुपमा परिवर्तन गर्नु हो।
 
