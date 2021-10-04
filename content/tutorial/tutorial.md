@@ -240,7 +240,7 @@ class Square extends React.Component {
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -248,7 +248,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 यदि तपाइँ अहिले एक Square component मा क्लिक गर्नुहुन्छ भने, तपाइँले तपाइँको ब्राउजरमा अलर्ट देख्नुपर्दछ।
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 >नोट
 >
@@ -258,7 +262,7 @@ class Square extends React.Component {
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -266,8 +270,12 @@ class Square extends React.Component {
 >}
 >```
 >
+<<<<<<< HEAD
 >
 >याद गर्नुहोस `onClick={() => alert('click')}`, हामीले कसरि *एउटा function* `onClick` लाई props को रुपमा पठाई राखेका छौ। React ले click गरेपछि मात्रै यो function लाई कल गर्छ। `() =>` लाई बिर्सेर `onClick={alert('click')}` लेख्नु साधारण गल्ति हो, र जसले गर्दा component re-render हुने बित्तिकै जहिले पनि अलर्ट कल हुन्छ।
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 अर्को चरणको रूपमा, हामी Square component क्लिक भएको छ भनी "सम्झाउन" चाहन्छौ, र यसलाई "X" चिन्हले भरिनेछ। त्यो चिजहरु "सम्झनको" लागि, component हरुले state को  प्रयोग गर्छन्।
 
@@ -286,7 +294,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
@@ -462,11 +470,19 @@ class Square extends React.Component {
 
 जब एक Square क्लिक गरिन्छ, बोर्ड द्वारा प्रदान गरिएको `onClick` function कल हुन्छ। यहाँ यो कसरी हासिल भएको छ यसको समीक्षा:
 
+<<<<<<< HEAD
 1. निर्मित DOM `<button>` मा  भएको `OnClick` prop लाई component ले React लाइ क्लिक event listener सेट अप गर्न को लागी भन्छ।
 2. जब बटन क्लिक गरिन्छ, React ले `onClick` event handler लाई कल गर्नेछ जुन Square को `render()` method मा परिभाषित गरिएको छ।
 3. यो event handler ले `this.props.onClick()` लाई कल गर्दछ। Square को  `onclick` prop लाई Board द्वारा निर्दिष्ट गरिएको थियो।
 4. बोर्डले `onClick = {() => this.handleClick (i)}` लाई Square मा पठायो, Square क्लिक गरे पछि`this.handleClick (i)` लाई कल गर्छ।
 5. हामीले अझै `handleClick()` method परिभाषित गरेको छैनौ, त्यसैले हाम्रो कोड बिग्रिन्छ। यदि तपाइँ अहिले एउटा Square मा क्लिक गर्नुहुन्छ भने, तपाईंले रातो त्रुटि भएको एस्तो खालको स्क्रीन देख्नु पर्दछ "this.handleClick is not a function"।
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 >नोट
 >
@@ -535,7 +551,11 @@ Square component हरूले अब state लाई सुरक्षित
 
 ### किन Immutability महत्त्वपूर्ण छ {#why-immutability-is-important}
 
+<<<<<<< HEAD
 अघिल्लो कोड उदाहरणमा, हामीले सुझाव दिएको छ कि तपाइँ  array लाई  परिमार्जन गर्नको लागि अवस्थित array परिबर्तन गर्नुको सट्टा  `.slice()` अपरेटर को उपयोग गरेर `squares` array को एक प्रतिलिपि निर्माण गर्न सक्नु हुन्छ। हामी अहिले immutability को बारेमा र किन immutability सिक्न महत्त्वपूर्ण छ भन्ने बारेमा छलफल गर्नेछौं।
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 सामान्यतया data परिवर्तन गर्न दुईवटा दृष्टिकोणहरू छन्। पहिलो दृष्टिकोण data को मानहरू परिवर्तन गरेर data *mutate* गर्नु हो। दोस्रो दृष्टिकोणले नयाँ प्रतिलिपिको साथ data लाई इच्छित रुपमा परिवर्तन गर्नु हो।
 
