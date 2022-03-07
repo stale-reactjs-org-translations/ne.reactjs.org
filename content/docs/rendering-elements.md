@@ -42,7 +42,11 @@ To render a React element into a root DOM node, pass both to [`ReactDOM.render()
 
 `embed:rendering-elements/render-an-element.js`
 
+<<<<<<< HEAD
 [कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/render-an-element)
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
 
 यसले पेजमा "Hello, world" देखाउँछ।
 
@@ -60,7 +64,11 @@ With our knowledge so far, the only way to update the UI is to create a new elem
 
 `embed:rendering-elements/update-rendered-element.js`
 
+<<<<<<< HEAD
 [कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/update-rendered-element)
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
 
 <<<<<<< HEAD
 यसले `ReactDOM.render()` लाई हरेक सेकेन्डमा [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback बाट कल गर्दछ।
@@ -82,7 +90,11 @@ It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a 
 
 React DOM ले element र यसको बच्चाहरूलाई अघिल्लो DOM संग तुलना गर्दछ, र केवल  DOM लाई चाहिएको state मा ल्याउन आवश्यक पर्ने DOM मात्र अद्यावधिक हुन्छ।
 
+<<<<<<< HEAD
 तपाइँ ब्राउजर उपकरणहरूसँग [अन्तिम उदाहरण](codepen://rendering-elements/update-rendered-element) निरीक्षण गरेर प्रमाणित गर्न सक्नुहुन्छ:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
 
 ![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
 
