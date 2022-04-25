@@ -9,22 +9,26 @@ next: release-channels.html
 दुबै React र ReactDOM हरु CDN मा उपलब्ध छन्।
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 ```
 
 माथिको संस्करणहरू केवल डेभलपमेन्टका लागि मात्र हुन्, र प्रोडक्सनको लागि उपयुक्त छैन। React को संकुचित र अनुकूलित बनाईएको संस्करणहरू यहाँ उपलब्ध छन्:
 
 ```html
-<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 `react` र `react-dom` को विशेष संस्करण प्रयोग गर्नको लागि, `16` लाई संस्करण अंकले बदल्नुहोस।
 =======
 To load a specific version of `react` and `react-dom`, replace `17` with the version number.
 >>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+=======
+To load a specific version of `react` and `react-dom`, replace `18` with the version number.
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 ### हामीलाई `crossorigin` Attribute किन चाहिन्छ? {#why-the-crossorigin-attribute}
 
