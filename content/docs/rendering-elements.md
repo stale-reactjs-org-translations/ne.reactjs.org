@@ -35,6 +35,7 @@ const element = <h1>Hello, world</h1>;
 प्राय: React मात्र प्रयोग गरी निर्मित Application हरुमा  एउटा root DOM node हुन्छ। यदि तपाइँ एक अवस्थित app मा React प्रयोग गर्नु भएको छ भने, तपाईंलाई जस्तो मनपर्छ तेस्तो धेरै अलग root DOM node हरू हुन सक्दछ।
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 root DOM node मा एक react element render गर्न, दुवै लाई  `ReactDOM.render()` मा पास गर्नुहोस:
 =======
 To render a React element into a root DOM node, pass both to [`ReactDOM.render()`](/docs/react-dom.html#render):
@@ -43,6 +44,13 @@ To render a React element into a root DOM node, pass both to [`ReactDOM.render()
 `embed:rendering-elements/render-an-element.js`
 
 [कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/render-an-element)
+=======
+To render a React element, first pass the DOM element to [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), then pass the React element to `root.render()`:
+
+`embed:rendering-elements/render-an-element.js`
+
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 यसले पेजमा "Hello, world" देखाउँछ।
 
@@ -51,15 +59,20 @@ To render a React element into a root DOM node, pass both to [`ReactDOM.render()
 React elements [immutable](https://en.wikipedia.org/wiki/Immutable_object) हुन्छन। एकपटक तपाईंले एक element बनाएपछि, तपाईं एस्को child वा attributes परिवर्तन गर्न सक्नुहुन्न। चलचित्रमा हुने एक एकल फ्रेम जस्तै एक element हो: यो निश्चित समयमा UI को प्रतिनिधित्व गर्दछ।
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 अहिले सम्मको ज्ञान बाट यो कुरा थाहा पाउछौ कि, UI अद्यावधिक गर्न को लागि एकमात्र तरीका एक नयाँ element बनाउनु हो, र यसलाई `ReactDOM.render ()` मा पठाउनु पर्छ।
 =======
 With our knowledge so far, the only way to update the UI is to create a new element, and pass it to [`ReactDOM.render()`](/docs/react-dom.html#render).
 >>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `root.render()`.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 यो चालु घडीको उदाहरणलाई विचार गर्नुहोस्:
 
 `embed:rendering-elements/update-rendered-element.js`
 
+<<<<<<< HEAD
 [कोडपेनमा यो प्रयास गर्नुहोस्](codepen://rendering-elements/update-rendered-element)
 
 <<<<<<< HEAD
@@ -67,14 +80,23 @@ With our knowledge so far, the only way to update the UI is to create a new elem
 =======
 It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
 >>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
+
+It calls [`root.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 >**नोट:**
 >
+<<<<<<< HEAD
 <<<<<<< HEAD
 >धेरैजसो, अधिकांश React app हरुले `ReactDOM.render()` एक पटक मात्र कल गर्छ।अर्को खण्डमा हामी यो कोडले [stateful components](/docs/state-and-lifecycle.html) मा कसरी encapsulated हुन्छ भन्ने सिक्छौं।
 =======
 >In practice, most React apps only call [`ReactDOM.render()`](/docs/react-dom.html#render) once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
 >>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+=======
+>In practice, most React apps only call `root.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 >
 >हामी तपाईलाई विषयहरू नछोड्न सिफारिस गर्दछौं किनकि तिनीहरू एकअर्कामा बनेको हुन्छन।
 
@@ -82,7 +104,11 @@ It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a 
 
 React DOM ले element र यसको बच्चाहरूलाई अघिल्लो DOM संग तुलना गर्दछ, र केवल  DOM लाई चाहिएको state मा ल्याउन आवश्यक पर्ने DOM मात्र अद्यावधिक हुन्छ।
 
+<<<<<<< HEAD
 तपाइँ ब्राउजर उपकरणहरूसँग [अन्तिम उदाहरण](codepen://rendering-elements/update-rendered-element) निरीक्षण गरेर प्रमाणित गर्न सक्नुहुन्छ:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 ![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
 
