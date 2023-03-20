@@ -20,107 +20,108 @@ redirect_from:
 
 यो पेज React डोकुमेन्ट र सम्ब धित स्रोतहरूको समिक्षा हो ।
 
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+**React** भनेको user interface बनाउने JavaScript library हो। React को बारेमा बुझ्नुहोस [हाम्रो होमपेजमा](/) वा [tutorial](/tutorial/tutorial.html) मा।
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [React प्रयोग गर्नुहोस](#try-react)
+- [React सिक्नुहोस।](#learn-react)
+- [सूचित रहनुहोस्](#staying-informed)
+- [संस्करण गरिएको Documentation](#versioned-documentation)
+- [केहि छुटेको छ?](#something-missing)
 
-## Try React {#try-react}
+## React प्रयोग गर्नुहोस {#try-react}
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React क्रमशः अपनाउनका लागि सुरुदेखि नै डिजाइन गरिएको हो, र **तपाईंले आवश्यक भए जति कम वा धेरै React प्रयोग गर्न सक्नुहुन्छ।** तपाईं React को स्वाद प्राप्त गर्न चाहनुहुन्छ भने, साधारण HTML पृष्ठमा केही अन्तरक्रियात्मकता थप्नुहोस्, वा जटिल React-संचालित एप सुरु गर्नुहोस्, यस खण्डमा भएका लिङ्कहरूले तपाईंलाई सुरु गर्न मद्दत गर्नेछ।
 
-### Online Playgrounds {#online-playgrounds}
+### अनलाइन Playgrounds {#online-playgrounds}
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Stackblitz](https://stackblitz.com/fork/react).
+यदि तपाइँ React संग वरपर खेल्न रुचि राख्नुहुन्छ भने, तपाइँ एक अनलाइन कोड playgrounds प्रयोग गर्न सक्नुहुन्छ। [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), वा [Stackblitz](https://stackblitz.com/fork/react) मा Hello World टेम्प्लेट चलाएर हेर्नुहोस्।
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+यदि तपाइँ तपाइँको आफ्नै text editor प्रयोग गर्न चाहनुहुन्छ भने, तपाइँ [यो HTML फाइल डाउनलोड गर्नुहोस्](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) , यसलाई सम्पादन गर्नुहोस्, र आफ्नो ब्राउजरमा स्थानीय फाइल प्रणालीबाट खोल्नुहोस्। यसले ढिलो रनटाइम कोड रूपान्तरण गर्छ, त्यसैले हामी यसलाई साधारण डेमोहरूको लागि मात्र प्रयोग गर्न सिफारिस गर्छौं।
 
-### Add React to a Website {#add-react-to-a-website}
+### Website मा React थप्नुहोस {#add-react-to-a-website}
 
-You can [add React to an HTML page in one minute](/docs/add-react-to-a-website.html). You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+तपाईं [एक मिनेटमा HTML पृष्ठमा प्रतिक्रिया थप्न सक्नुहुन्छ](/docs/add-react-to-a-website.html)। त्यसपछि तपाइँ या त बिस्तारै यसको उपस्थिति विस्तार गर्न सक्नुहुन्छ, वा यसलाई केहि dynamic विजेटहरूमा राख्न सक्नुहुन्छ।
 
-### Create a New React App {#create-a-new-react-app}
+### नया React app बनाउनुहोस {#create-a-new-react-app}
 
-When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
+React Project सुरु गर्दा, [स्क्रिप्ट ट्यागहरू भएको सरल HTML पृष्ठ](/docs/add-react-to-a-website.html) अझै पनि उत्तम विकल्प हुन सक्छ। यसलाई सेट अप गर्न एक मिनेट मात्र लाग्छ!
 
 As your application grows, you might want to consider a more integrated setup. There are several JavaScript toolchains we recommend for larger applications. Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem. [Learn how.](/docs/create-a-new-react-app.html)
+तपाईको एप्लिकेसन बढ्दै जाँदा, तपाईले थप एकीकृत सेटअपलाई विचार गर्न सक्नुहुन्छ। त्यहाँ धेरै JavaScript टूलचेनहरू छन् जुन हामीले ठूला applications को लागि सिफारिस गर्छौं। ती मध्ये प्रत्येकले थोरै वा कुनै कन्फिगरेसन बिना काम गर्न सक्छ र तपाईंलाई रिच React इकोसिस्टमको पूर्ण फाइदा लिन दिन्छ। [कसरी जान्नुहोस्।](/docs/create-a-new-react-app.html)
 
-## Learn React {#learn-react}
+## React सिक्नुहोस {#learn-react}
 
-People come to React from different backgrounds and with different learning styles. Whether you prefer a more theoretical or a practical approach, we hope you'll find this section helpful.
-
-* If you prefer to **learn by doing**, start with our [practical tutorial](/tutorial/tutorial.html).
-* If you prefer to **learn concepts step by step**, start with our [guide to main concepts](/docs/hello-world.html).
+मानिसहरु React मा विभिन्न पृष्ठभूमि र सिक्ने बातावरणबाट आउछन। चाहे तपाईं थप सैद्धान्तिक वा व्यावहारिक दृष्टिकोण चाहनुहुन्छ, हामी आशा गर्दछौं कि तपाईंले यो खण्ड उपयोगी पाउनुहुनेछ।
+* यदि तपाइँ **गरेर सिक्न** रुचाउनुहुन्छ भने, हाम्रो [व्यावहारिक tutorial](/tutorial/tutorial.html) बाट सुरु गर्नुहोस्।
+* यदि तपाईं **चरणबद्ध अवधारणाहरू सिक्न चाहनुहुन्छ** भने, हाम्रो [मुख्य अवधारणाहरूको लागि मार्गनिर्देशन](/docs/hello-world.html) सँग सुरु गर्नुहोस्।
 
 Like any unfamiliar technology, React does have a learning curve. With practice and some patience, you *will* get the hang of it.
+कुनै पनि अपरिचित टेक्नोलोजी जस्तै, React को पनि सिक्ने वक्र हुन्छ। अभ्यास र केहि धैर्य संग, तपाईं *यसको hang प्राप्त* गर्नुहुनेछ।
 
-### First Examples {#first-examples}
+### पहिलो उदाहरणहरू {#first-examples}
 
-The [React homepage](/) contains a few small React examples with a live editor. Even if you don't know anything about React yet, try changing their code and see how it affects the result.
+[React गृहपृष्ठ](/) ले लाइभ editor को साथमा React का केही साना उदाहरणहरू समावेश गर्दछ। तपाईलाई React को बारेमा अझै केहि थाहा छैन भने पनि, तिनीहरूको कोड परिवर्तन गर्ने प्रयास गर्नुहोस् र यसले परिणामलाई कसरी असर गर्छ हेर्नुहोस्।
 
-### React for Beginners {#react-for-beginners}
+### शुरुआतीहरूको लागि React {#react-for-beginners}
 
-If you feel that the React documentation goes at a faster pace than you're comfortable with, check out [this overview of React by Tania Rascia](https://www.taniarascia.com/getting-started-with-react/). It introduces the most important React concepts in a detailed, beginner-friendly way. Once you're done, give the documentation another try!
+यदि तपाईंलाई React Documentation तपाईंलाई सहज भएको भन्दा छिटो गतिमा जान्छ जस्तो लाग्छ भने, हेर्नुहोस [तानिया रसियाद्वारा React को यो सिंहावलोकन](https://www.taniarascia.com/getting-started-with-react/) । यसले सबैभन्दा महत्त्वपूर्ण React का अवधारणाहरू विस्तृत, शुरुआती-अनुकूल तरिकामा प्रस्तुत गर्दछ। एकचोटि तपाईंले गरिसकेपछि, documentation लाई फेरि प्रयास गर्नुहोस्!
 
-### React for Designers {#react-for-designers}
+### डिजाइनरहरूको लागि React {#react-for-designers}
 
-If you're coming from a design background, [these resources](https://reactfordesigners.com/) are a great place to get started.
+यदि तपाईं डिजाइन पृष्ठभूमिबाट आउँदै हुनुहुन्छ भने, [यी स्रोतहरू](https://reactfordesigners.com/) सुरु गर्नको लागि उत्कृष्ट ठाउँ हो।
 
-### JavaScript Resources {#javascript-resources}
+### JavaScript संसाधनहरू {#javascript-resources}
 
-The React documentation assumes some familiarity with programming in the JavaScript language. You don't have to be an expert, but it's harder to learn both React and JavaScript at the same time.
+React documentation ले JavaScript भाषामा प्रोग्रामिङसँग केही परिचितता मान्दछ। तपाईं एक विशेषज्ञ हुनु पर्दैन, तर React र JavaScript दुवै एकै समयमा सिक्न गाह्रो छ।
 
-We recommend going through [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level. It will take you between 30 minutes and an hour but you will feel more confident learning React.
+हामी आफ्नो ज्ञान स्तर जाँच गर्न [यस JavaScript सिंहावलोकन](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) मार्फत जान सिफारिस गर्छौं। यसले तपाइँलाई 30 मिनेट र एक घण्टाको बीचमा लिनेछ तर तपाइँ React सिक्न थप आत्मविश्वास महसुस गर्नुहुनेछ।
 
->Tip
+>सुझाव
 >
->Whenever you get confused by something in JavaScript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [javascript.info](https://javascript.info/) are great websites to check. There are also [community support forums](/community/support.html) where you can ask for help.
+>जब तपाईं JavaScript मा कुनै कुरामा अलमलमा हुनुहुन्छ, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) र [javascript.info](https://javascript.info/) जाँच गर्न महान वेबसाइटहरू हुन्। त्यहाँ [सामुदायिक समर्थन फोरमहरू](/community/support.html) पनि छन् जहाँ तपाईं मद्दत माग्न सक्नुहुन्छ।
 
-### Practical Tutorial {#practical-tutorial}
+### व्यावहारिक Tutorial {#practical-tutorial}
 
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+यदि तपाईं **गरेर सिक्न** चाहनुहुन्छ भने, हाम्रो [व्यावहारिक tutorial](/tutorial/tutorial.html) हेर्नुहोस्। यस tutorial मा, हामी React मा टिक-ट्याक-टो खेल बनाउँछौं। तपाईं यसलाई छोड्न प्रलोभनमा पर्न सक्नुहुन्छ किनभने तपाईं खेलहरू निर्माण गर्नमा हुनुहुन्न -- तर यसलाई मौका दिनुहोस्। तपाईंले tutorial मा सिक्नुहुने प्रविधिहरू *कुनै* React एपहरू निर्माण गर्नका लागि आधारभूत छन्, र त्यसमा निपुणता हासिल गर्नाले तपाईंलाई धेरै गहिरो बुझाइ दिनेछ।
 
-### Step-by-Step Guide {#step-by-step-guide}
+### चरण-दर-चरण Guide {#step-by-step-guide}
 
-If you prefer to **learn concepts step by step,** our [guide to main concepts](/docs/hello-world.html) is the best place to start. Every next chapter in it builds on the knowledge introduced in the previous chapters so you won't miss anything as you go along.
+यदि तपाईं **अवधारणाहरू चरणबद्ध रूपमा सिक्न चाहनुहुन्छ भने, ** हाम्रो [मुख्य अवधारणाहरूका लागि मार्गदर्शिका](/docs/hello-world.html) सुरु गर्ने उत्तम ठाउँ हो। यसका प्रत्येक अर्को अध्यायले अघिल्लो अध्यायहरूमा प्रस्तुत गरिएको ज्ञानमा निर्माण गर्दछ ताकि तपाईं सँगै जानुहुँदा तपाईंले केहि पनि नछुटाउनु हुनेछ।
 
-### Thinking in React {#thinking-in-react}
+### React मा सोचाई {#thinking-in-react}
 
-Many React users credit reading [Thinking in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
+धेरै React प्रयोगकर्ताहरूले [Thinking in React](/docs/thinking-in-react.html) को रूपमा React अन्त्यमा उनीहरूका लागि "क्लिक" गरेको पल क्रेडिट पढ्छन्। यो सायद सबैभन्दा पुरानो React वाकथ्रु हो तर यो अझै पनि सान्दर्भिक छ।
 
-### Recommended Courses {#recommended-courses}
+### सिफारिस गरिएका पाठ्यक्रमहरू {#recommended-courses}
 
-Sometimes people find third-party books and video courses more helpful than the official documentation. We maintain [a list of commonly recommended resources](/community/courses.html), some of which are free.
+कहिलेकाहीँ मानिसहरूले तेस्रो-पक्ष पुस्तकहरू र भिडियो पाठ्यक्रमहरू आधिकारिक documentation भन्दा बढी उपयोगी पाउँछन्। हामी [सामान्यतया सिफारिस गरिएका स्रोतहरूको सूची](/community/courses.html) राख्छौं, जसमध्ये केही निःशुल्क छन्।
 
-### Advanced Concepts {#advanced-concepts}
+### उन्नत अवधारणाहरू {#advanced-concepts}
 
-Once you're comfortable with the [main concepts](/docs/hello-world.html) and played with React a little bit, you might be interested in more advanced topics. This section will introduce you to the powerful, but less commonly used React features like [context](/docs/context.html) and [refs](/docs/refs-and-the-dom.html).
+एक पटक तपाईं [मुख्य अवधारणाहरू](/docs/hello-world.html) मा सहज हुनुहुन्छ र React सँग थोरै खेल्नुभयो भने, तपाईंलाई थप उन्नत विषयहरूमा रुचि हुन सक्छ। यस खण्डले तपाईंलाई शक्तिशाली, तर कम प्रयोग हुने React सुविधाहरू जस्तै [context](/docs/context.html) र [refs](/docs/refs-and-the-dom.html) लाई परिचय गराउनेछ।
 
-### API Reference {#api-reference}
+### API सन्दर्भ {#api-reference}
 
-This documentation section is useful when you want to learn more details about a particular React API. For example, [`React.Component` API reference](/docs/react-component.html) can provide you with details on how `setState()` works, and what different lifecycle methods are useful for.
+यो documentation खण्ड उपयोगी छ जब तपाईं एक विशेष React API को बारे मा थप विवरण जान्न चाहनुहुन्छ। उदाहरणका लागि, [`React.Component` API सन्दर्भ](/docs/react-component.html) ले तपाईंलाई `setState()` कसरी काम गर्छ, र विभिन्न जीवनचक्र विधिहरूका लागि उपयोगी छन् भन्ने विवरणहरू प्रदान गर्न सक्छ।
 
-### Glossary and FAQ {#glossary-and-faq}
+### शब्दावली र FAQ {#glossary-and-faq}
 
-The [glossary](/docs/glossary.html) contains an overview of the most common terms you'll see in the React documentation. There is also a FAQ section dedicated to short questions and answers about common topics, including [making AJAX requests](/docs/faq-ajax.html), [component state](/docs/faq-state.html), and [file structure](/docs/faq-structure.html).
+[शब्दावली](/docs/glossary.html) मा तपाईंले React documentation मा देख्नुहुने सबैभन्दा सामान्य शब्दहरूको सिंहावलोकन समावेश छ। त्यहाँ [AJAX अनुरोधहरू बनाउने](/docs/faq-ajax.html), [कम्पोनेन्ट स्टेट](/docs/faq-state.html), र [फाइल संरचना](/docs/faq-structure.html), सर्वसाधारण विषयहरूको बारेमा छोटो प्रश्न र उत्तरहरूका लागि समर्पित FAQ खण्ड पनि छ।
 
-## Staying Informed {#staying-informed}
+## जानकारी रहँदै {#staying-informed}
 
-The [React blog](/blog/) is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted there first.
+[React blog](/blog/) React टोलीबाट अद्यावधिकहरूको आधिकारिक स्रोत हो। कुनै पनि महत्त्वपूर्ण कुरा, रिलीज नोटहरू वा ह्रास सूचनाहरू सहित, पहिले त्यहाँ पोस्ट गरिनेछ।
 
-You can also follow the [@reactjs account](https://twitter.com/reactjs) on Twitter, but you won't miss anything essential if you only read the blog.
+तपाईंले Twitter मा [@reactjs account](https://twitter.com/reactjs) लाई पनि फलो गर्न सक्नुहुन्छ, तर तपाईंले ब्लग मात्र पढ्नुभयो भने तपाईंले कुनै पनि आवश्यक कुरा छुटाउनुहुने छैन।
 
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+प्रत्येक Reaction विमोचन यसको आफ्नै ब्लग पोस्टको योग्य छैन, तर तपाईंले [`CHANGELOG.md` React Repository] (https://github.com/facebook/react/blob/master/CHANGELOG.md) मा प्रत्येक रिलीजको लागि विस्तृत चेन्जलग फेला पार्न सक्नुहुन्छ। , साथै [रिलिजहरू](https://github.com/facebook/react/releases) पृष्ठमा।
 
-## Versioned Documentation {#versioned-documentation}
+## संस्करण गरिएको Documentation {#versioned-documentation}
 
-This documentation always reflects the latest stable version of React. Since React 16, you can find older versions of the documentation on a [separate page](/versions). Note that documentation for past versions is snapshotted at the time of the release, and isn't being continuously updated.
+यो documentation ले सधैं React को नवीनतम स्थिर संस्करणलाई प्रतिबिम्बित गर्दछ। React 16 देखि, तपाईंले documentation का पुराना संस्करणहरू [पृथक पृष्ठ](/versions) मा फेला पार्न सक्नुहुन्छ। नोट गर्नुहोस् कि विगतका संस्करणहरूका लागि documentation विमोचनको समयमा स्न्यापसट गरिएको छ, र निरन्तर अद्यावधिक भइरहेको छैन।
 
-## Something Missing? {#something-missing}
+## केहि छुटेको छ?? {#something-missing}
 
-If something is missing in the documentation or if you found some part confusing, please [file an issue for the documentation repository](https://github.com/reactjs/reactjs.org/issues/new) with your suggestions for improvement, or tweet at the [@reactjs account](https://twitter.com/reactjs). We love hearing from you!
+यदि documentation मा केहि छुटेको छ वा तपाईंले केही अंश भ्रमित भएको पाउनुभयो भने, कृपया सुधारको लागि आफ्नो सुझावहरू सहित [file and issue for the documentation repository](https://github.com/reactjs/reactjs.org/issues/new), वा [@reactjs खाता](https://twitter.com/reactjs) मा ट्वीट गर्नुहोस्। हामीलाई तपाईंबाट सुन्न मन पर्छ!
